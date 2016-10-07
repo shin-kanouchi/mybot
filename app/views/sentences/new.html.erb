@@ -1,0 +1,12 @@
+<h1>Chat</h1>
+
+<ul id="chat">
+  <div class="left">
+    <%= render partial: "sentence", locals: { sentence: @sentence } %>
+  </div>
+</ul>
+
+<%= form_for Sentence.new, remote: true do |f| %>
+  <%= f.text_area :sentence, placeholder: 'Write something...' %>
+  <%= f.submit "Send" %>
+<% end %>

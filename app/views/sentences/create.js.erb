@@ -1,0 +1,4 @@
+$('#chat').append("<div class='right'><%= j( render(partial: 'sentence', locals: { sentence: @sentence}) )%></div>"); 
+$("#sentence_sentence").val('');
+$('#chat').append("<div class='left'><%= j( render(partial: 'sentence', locals: { sentence: @sentence.docomo_reply}) )%></div>"); 
+$("#sentence_sentence").val('');
