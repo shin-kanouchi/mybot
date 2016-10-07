@@ -1,0 +1,7 @@
+<div class="contents row" >
+  <% @trains.each do |train| %>
+    <% if train.tweet.present? && train.reply.present? %>
+      <p><%= train.tweet.sentence %><%= train.reply.sentence %></p>
+    <% end %>
+  <% end %>
+</div>
