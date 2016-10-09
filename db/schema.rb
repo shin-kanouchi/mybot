@@ -23,7 +23,7 @@ ActiveRecord::Schema.define(version: 20161009052026) do
     t.integer  "user_id",       limit: 4
     t.integer  "tweet_id",      limit: 4
     t.integer  "reply_id",      limit: 4
-    t.integer  "adequacy_flag", limit: 4
+    t.integer  "adequacy_flag", limit: 4, default: 0
     t.datetime "created_at"
     t.datetime "updated_at"
   end

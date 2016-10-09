@@ -4,7 +4,7 @@ class CreateTrains < ActiveRecord::Migration
       t.integer :user_id
       t.integer :tweet_id
       t.integer :reply_id
-      t.integer :adequacy_flag
+      t.integer :adequacy_flag, default: 0
       t.timestamps
     end
   end
