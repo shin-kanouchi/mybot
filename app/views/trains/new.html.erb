@@ -1,16 +1,33 @@
-<div class="contents row">
-  <div class="container">
-    <% binding.pry %>
-    <%= form_for [@train] do |f| %>
-      <%# ラジオボタン選択 %>
-      <p>
-        <%= f.label :reply_id, '解答候補:' %>
-        <%= f.collection_radio_buttons :reply_id, @tweet.replys, :id, :sentence %>
-        <%= f.radio_button :reply_id, '', checked: @reply_id == '' %>
-        <%= f.label :reply_id_, '自分で入力する' %>
-        <%= f.text_area :reply, size: "30x2" %>
-      </p>
-      <input type="submit" value="SENT">
+<h1>Chat</h1>
+
+<ul id="chat">
+  <div class="left">
+    <%= render partial: "sentence_bot", locals: { sentence: @sentence } %>
+  </div>
+</ul>
+
+<div class="edit_button">
+  <button id="edit" type="button">発言を修正</button>
+  <button id="new" type="button">修正をやめる</button>
+</div>
+
+<div class="contents">
+  <div class="edit">
+    <%# form_for Train.new, remote: true do |f| %>
+      <%# f.text_area :sentence, placeholder: '修正内容を入力' %>
+      <%# f.submit "Send" %>
+    <%# end %>
+    <%= form_tag("/trains", action: 'update', method: 'patch', remote: true) do %>
+      <%= text_field_tag "tweet" %>
+      <%= submit_tag("編集完了") %>
+    <% end %>
+
+  </div>
+  <div class="new">
+    <%= form_tag("/trains", method: "post", remote: true) do %>
+      <%= text_field_tag "tweet" %>
+      <%= submit_tag("送信") %>
+      <%# submit_tag("送信", onClick="_submit();") %>
     <% end %>
   </div>
 </div>

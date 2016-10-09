@@ -1,0 +1,8 @@
+console.log("Hello world");
+$('#chat').append("<%= j( render(partial: 'sentence_bot', locals: { sentence: @reply}) )%>"); 
+$("#sentence_sentence").val('');
+
+$(".edit_button #new").css("display", "none");
+
+$(".contents div").hide();
+$(".contents .new").show();

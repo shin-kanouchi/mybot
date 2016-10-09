@@ -10,3 +10,14 @@
   text-align: right;
 }
 
+.edit { /* .contentsの中の.rightに対する記述 */
+  display: none; /* 最初、右のコンテンツは非表示にする */
+}
+
+.edit_button #new{
+  display: none;
+}
+
+.edit_button #edit{
+  display: none;
+}
