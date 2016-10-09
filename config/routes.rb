@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  root 'trains#index'
+  devise_for :users
+  root 'tops#index'
   #get  'questions/:question_id/trains/new' => 'trains#new'
 
   patch 'trains' => 'trains#update'

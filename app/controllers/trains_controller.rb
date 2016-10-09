@@ -13,15 +13,16 @@ class TrainsController < ApplicationController
 
   def create
     @tweet = create_sentence
-    @reply = docomo_reply
-    @train = Train.create(tweet_id: @tweet.id, reply_id: @reply.id, adequacy_flag: 1)
+    choose_reply
+    binding.pry
+    @train = Train.create(user_id: current_user.id, tweet_id: @tweet.id, reply_id: @reply.id, adequacy_flag: 1)
   end
 
   def update
     @reply = create_sentence
     train = Train.last #params[:id]
     train.update(adequacy_flag: 0) #train_idを受け取ってない
-    @train = Train.create(tweet_id: train.tweet_id, reply_id: @reply.id, adequacy_flag: 1)
+    @train = Train.create(user_id: current_user.id, tweet_id: train.tweet_id, reply_id: @reply.id, adequacy_flag: 1)
   end
 
   private
@@ -43,4 +44,20 @@ class TrainsController < ApplicationController
   def create_sentence
     Sentence.where(sentence: params["tweet"]).first_or_create
   end
+
+  def choose_reply
+    old_lev = 100
+    #@reply = nil
+    Train.where(user_id: current_user.id, adequacy_flag: 1).each do |train|
+      lev = Levenshtein.distance(@tweet.sentence, train.tweet.sentence)
+      if lev < old_lev
+        @reply = train.reply
+        old_ls = lev
+      end
+    end
+    if @reply == nil
+      @reply = docomo_reply
+    end
+  end
+
 end
