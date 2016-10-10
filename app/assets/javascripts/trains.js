@@ -5,10 +5,10 @@ window.addEventListener("load", function() {
     $(".contents div").hide();
     $(".contents ."+this.id).show();
     if (this.id == "edit"){
-      $(".left li:last").css("text-decoration", "line-through"); //text-decoration: line-through; span:last-child
+      $("#chat-frame .chat-hukidashi:last").css("text-decoration", "line-through"); //text-decoration: line-through; span:last-child
       $(".edit_button #new").show();
     }else{
-      $(".left li:last").css("text-decoration", "none");
+      $("#chat-frame .chat-hukidashi:last").css("text-decoration", "none");
       $(".edit_button #edit").show();
     }
   });

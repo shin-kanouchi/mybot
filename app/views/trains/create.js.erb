@@ -1,9 +1,9 @@
 //console.log(@min_diff_score.to_s)
 
-$('#chat').append("<%= j( render(partial: 'sentence_user', locals: { sentence: @tweet}) )%>");
+$('#chat-frame').append("<%= j( render(partial: 'sentence_user', locals: { sentence: @tweet}) )%>");
 $("#sentence_sentence").val('');
 
-$('#chat').append("<%= j( render(partial: 'sentence_bot', locals: { sentence: @reply}) )%>"); 
+$('#chat-frame').append("<%= j( render(partial: 'sentence_bot', locals: { sentence: @reply}) )%>"); 
 $("#sentence_sentence").val('');
 
 $(".edit_button #edit").css("display", "block");

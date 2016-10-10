@@ -1,10 +1,8 @@
 <h1>Chat</h1>
 
-<ul id="chat">
-  <div class="left">
-    <%= render partial: "sentence_bot", locals: { sentence: @sentence } %>
-  </div>
-</ul>
+<div id="chat-frame">
+  <%= render partial: "sentence_bot", locals: { sentence: @sentence } %>
+</div>
 
 <div class="edit_button">
   <button id="edit" type="button">発言を修正</button>

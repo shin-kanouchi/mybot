@@ -35,7 +35,7 @@ class TrainsController < ApplicationController
 
   def train_adequacy_minus
     train = Train.order("updated_at DESC").first #.limit(1) #.last #params[:id]
-    train.adequacy_flag = [train.adequacy_flag - 1, 0].max
+    train.adequacy_flag = [train.adequacy_flag - 3, 0].max
     train.save
     return train
   end
