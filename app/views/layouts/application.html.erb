@@ -11,24 +11,16 @@
     <div class="header__bar row">
       <h1 class="grid-6"><a href="/">Mybot</a></h1>
       <% if user_signed_in? %>
-        <div class="user_nav grid-6">
 
-          <span> <%= current_user.botname %>
-            <ul class="user__info">
-              <li>
-                <a href="/users/<%= current_user.id %>">マイページ</a>
-                <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
-              </li>
-            </ul>
-          </span>
-
-          <a class="post" href="/trains/new">学習する</a>
-        </div>
+        <span>
+          <a class="button button--ujarak button--border-thin button--round-s button--text-medium" rel="nofollow" data-method="delete" href="/users/sign_out">ログアウト</a>
+          <a class="button button--ujarak button--border-thin button--round-s button--text-medium" href="/trains/new">学習する</a>
+          <a class="button button--ujarak button--border-thin button--round-s button--text-medium" href="/users/<%= current_user.id %>">マイページ</a>
+        </span>
+        
       <% else %>
-        <div class="grid-6">
-          <%= link_to "ログイン", new_user_session_path, class: 'post' %>
-          <%= link_to "新規登録", new_user_registration_path, class: 'post' %>
-        </div>
+        <a class="button button--ujarak button--border-thin button--round-s button--text-medium" href="/users/sign_in">ログイン</a>
+        <a class="button button--ujarak button--border-thin button--round-s button--text-medium" href="/users/sign_up">新規登録</a>
       <% end %>
     </div>
   </header>

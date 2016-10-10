@@ -11,7 +11,7 @@ class TrainsController < ApplicationController
   def create
     @tweet = Sentence.where(sentence: params["tweet"]).first_or_create
     @reply, @min_diff_score = choose_reply
-    @train = train_adequacy_plus
+    @train = train_adequacy_plus(1)
     logger.debug("Hello, world!")
   end
 
@@ -19,7 +19,7 @@ class TrainsController < ApplicationController
     _train = train_adequacy_minus
     @tweet = _train.tweet
     @reply = Sentence.where(sentence: params["tweet"]).first_or_create
-    @train = train_adequacy_plus
+    @train = train_adequacy_plus(3)
   end
 
   private
@@ -27,9 +27,9 @@ class TrainsController < ApplicationController
     params.require(:train).permit(:reply_id).merge(adequacy_flag: 1)
   end
 
-  def train_adequacy_plus
+  def train_adequacy_plus(score)
       train = Train.where(user_id: current_user.id, tweet_id: @tweet.id, reply_id: @reply.id).first_or_initialize
-      train.adequacy_flag = [train.adequacy_flag + 1, 10].min
+      train.adequacy_flag = [train.adequacy_flag + score, 10].min
       train.save
   end
 
@@ -45,7 +45,7 @@ class TrainsController < ApplicationController
     reply = nil
     Train.where(user_id: current_user.id, adequacy_flag: 1..10).each do |train|
       lev = Levenshtein.distance(@tweet.sentence, train.tweet.sentence)
-      diff_score = 100 * lev / train.tweet.sentence.length
+      diff_score = 100 * lev / (train.tweet.sentence.length + 1)
       if diff_score < min_diff_score
         reply = train.reply
         min_diff_score = diff_score

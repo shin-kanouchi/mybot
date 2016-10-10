@@ -1,31 +1,31 @@
 <h1>Chat</h1>
 
 <div id="chat-frame">
-  <%= render partial: "sentence_bot", locals: { sentence: @sentence } %>
+    <%= render partial: "sentence_bot", locals: { sentence: @sentence } %>
 </div>
 
-<div class="edit_button">
-  <button id="edit" type="button">発言を修正</button>
-  <button id="new" type="button">修正をやめる</button>
-</div>
 
 <div class="contents">
   <div class="edit">
-    <%# form_for Train.new, remote: true do |f| %>
-      <%# f.text_area :sentence, placeholder: '修正内容を入力' %>
-      <%# f.submit "Send" %>
-    <%# end %>
     <%= form_tag("/trains", action: 'update', method: 'patch', remote: true) do %>
-      <%= text_field_tag "tweet" %>
-      <%= submit_tag("編集完了") %>
+      <span class="input input--minoru">
+        <input class="input__field input__field--minoru" type="text" name="tweet" id="input-1" placeholder="編集内容を入力">
+        <label class="input__label input__label--minoru" for="input-1"></label>
+      </span>
+      <%# submit_tag("編集完了") %>
+      <button type='submit' class="button button--ujarak button--border-medium button--round-s button--text-thick edit_color" name='action' value='send'>修正</button>
     <% end %>
-
   </div>
   <div class="new">
     <%= form_tag("/trains", method: "post", remote: true) do %>
-      <%= text_field_tag "tweet" %>
-      <%= submit_tag("送信") %>
-      <%# submit_tag("送信", onClick="_submit();") %>
+      <%# text_field_tag "tweet"  %>
+      <span class="input input--minoru">
+        <input class="input__field input__field--minoru" type="text" name="tweet" id="input-2">
+        <label class="input__label input__label--minoru" for="input-2"></label>
+      </span>
+
+      <%# submit_tag("送信") %>
+      <button type='submit' class="button button--ujarak button--border-medium button--round-s button--text-thick" name='action' value='send'>送信</button>
     <% end %>
   </div>
 </div>

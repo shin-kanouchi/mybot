@@ -1,5 +1,9 @@
-window.addEventListener("load", function() {
+/*$(document).on('turbolinks:load page:change', function(){
   $(".edit_button button").on("click", function() {
+
+    //初期化
+    $("input#tweet").val("");
+    //$("#tweet").val()="";
 
     $(".edit_button button").hide();
     $(".contents div").hide();
@@ -12,10 +16,18 @@ window.addEventListener("load", function() {
       $(".edit_button #edit").show();
     }
   });
+// window.addEventListener("load", function() {
+//   });
+
+  //$("div.new input[type='submit']").on("click", function()
+  //  $("input#tweet").val("");
+  //});
 });
 
-function _submit(){
-  //任意の処理
-  $(".edit_button #edit").show();
-  $(".edit_button").css("display", "block");
-}
+//function edit_button_on() {
+//  console.log("Hello world");
+//  $(".edit_button button").hide();
+//}
+
+*/
+

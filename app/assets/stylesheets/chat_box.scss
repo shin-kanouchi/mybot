@@ -34,9 +34,11 @@
 //    float: right;
 //}
 .chat-hukidashi {
+    float: left;
     display: inline-block;
     padding: 5px 5px;
     margin-left: 80px;
+    margin-right: 60px;
     margin-top: 0px;
     border-radius: 5px;
     position: relative;
@@ -152,4 +154,16 @@
         float: right;
         min-height: 3em;
     }
+}
+
+//編集ボタン
+.edit_button{
+  position: relative;
+  float: left;
+  margin-left: -55px;
+  margin-top: -10px;
+}
+
+.edit_color{
+   background-color : #FFDBC9;
 }
