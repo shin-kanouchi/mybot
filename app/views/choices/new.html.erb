@@ -1,0 +1,23 @@
+<h1>4 choices</h1>
+
+
+<div class="contents">
+  <p>
+    <%= @tweet.sentence %>
+  </p>
+  <%# form_tag("/trains", action: 'update', method: 'patch', remote: true) do %>
+  <%= form_tag("/choices/#{@train_1.id}", method: :patch) do %>
+    <button type='submit' class="button4choice button--ujarak button--border-medium button--round-s button--text-thick" name='action' value='send'><%= @train_1.reply.sentence %></button>
+  <% end %>
+
+  <%= form_tag("/choices/#{@train_2.id}", method: :patch) do %>
+    <button type='submit' class="button4choice button--ujarak button--border-medium button--round-s button--text-thick" name='action' value='send'><%= @train_2.reply.sentence %></button>
+  <% end %>
+
+  <%= form_tag("/choices/#{@train_3.id}", method: :patch) do %>
+    <button type='submit' class="button4choice button--ujarak button--border-medium button--round-s button--text-thick" name='action' value='send'><%= @train_3.reply.sentence %></button>
+  <% end %>
+
+  <a class="button4choice button--ujarak button--border-medium button--round-s button--text-thick edit_color" href="/choices/new">どれも違う</a>
+
+</div>

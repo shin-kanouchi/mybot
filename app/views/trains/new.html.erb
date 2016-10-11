@@ -4,7 +4,6 @@
     <%= render partial: "sentence_bot", locals: { sentence: @sentence } %>
 </div>
 
-
 <div class="contents">
   <div class="edit">
     <%= form_tag("/trains", action: 'update', method: 'patch', remote: true) do %>

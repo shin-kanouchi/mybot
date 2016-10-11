@@ -5,4 +5,5 @@ Rails.application.routes.draw do
 
   patch 'trains' => 'trains#update'
   resources :trains, only: [:new, :index, :create]
+  resources :choices, only: [:new, :create, :update]
 end
