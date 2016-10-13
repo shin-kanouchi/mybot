@@ -1,4 +1,3 @@
-console.log("Hello world");
 $('#chat-frame').append("<%= j( render(partial: 'sentence_bot', locals: { sentence: @reply}) )%>"); 
 $("#sentence_sentence").val('');
 
@@ -6,3 +5,5 @@ $(".edit_button #new").css("display", "none");
 
 $(".contents div").hide();
 $(".contents .new").show();
+
+window.scroll(0,$('#chat-frame').height());

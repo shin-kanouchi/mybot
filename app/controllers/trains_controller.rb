@@ -10,34 +10,34 @@ class TrainsController < ApplicationController
 
   def create
     @tweet = Sentence.where(sentence: params["tweet"]).first_or_create
-    @reply, @min_diff_score = choose_reply
-    @train = train_adequacy_plus(1)
-    logger.debug("Hello, world!")
+    @reply = choose_reply
+    if @reply.blank?
+      @reply = docomo_reply
+    end
+    train_adequacy_plus(1)
   end
 
   def update
-    _train = train_adequacy_minus
-    @tweet = _train.tweet
+    #修正前の候補を減点
+    train = Train.find(params["id"])
+    train.adequacy_flag = [train.adequacy_flag - 3, 0].max
+    train.save
+
+    #修正後の応答に加点
+    @tweet = train.tweet
     @reply = Sentence.where(sentence: params["tweet"]).first_or_create
-    @train = train_adequacy_plus(3)
+    train_adequacy_plus(3)
   end
 
   private
-  def train_params
-    params.require(:train).permit(:reply_id).merge(adequacy_flag: 1)
-  end
+  #def train_params
+  #  params.require(:train).permit(:reply_id).merge(adequacy_flag: 1)
+  #end
 
   def train_adequacy_plus(score)
-      train = Train.where(user_id: current_user.id, tweet_id: @tweet.id, reply_id: @reply.id).first_or_initialize
-      train.adequacy_flag = [train.adequacy_flag + score, 10].min
-      train.save
-  end
-
-  def train_adequacy_minus
-    train = Train.order("updated_at DESC").first #.limit(1) #.last #params[:id]
-    train.adequacy_flag = [train.adequacy_flag - 3, 0].max
-    train.save
-    return train
+      @train = Train.where(user_id: current_user.id, tweet_id: @tweet.id, reply_id: @reply.id).first_or_initialize
+      @train.adequacy_flag = [@train.adequacy_flag + score, 10].min
+      @train.save
   end
 
   def choose_reply
@@ -51,10 +51,7 @@ class TrainsController < ApplicationController
         min_diff_score = diff_score
       end
     end
-    if reply.blank?
-      reply = docomo_reply
-    end
-    return reply, min_diff_score
+    return reply
   end
 
   def docomo_reply

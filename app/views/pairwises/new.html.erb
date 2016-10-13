@@ -5,16 +5,10 @@
   <p>
     <%= @tweet.sentence %>
   </p>
-  <%= form_tag("/evaluates/#{@eval.id}/#{@pairwise.id}/1", method: :patch) do %>
-    <button type='submit' class="button4choice button--ujarak button--border-medium button--round-s button--text-thick" name='action' value='send'><%= @pairwise.reply_x.sentence %></button>
-  <% end %>
-
-  <%= form_tag("/evaluates/#{@eval.id}/#{@pairwise.id}/2", method: :patch) do %>
-    <button type='submit' class="button4choice button--ujarak button--border-medium button--round-s button--text-thick" name='action' value='send'><%= @pairwise.reply_y.sentence %></button>
-  <% end %>
-
-  <%= form_tag("/evaluates/#{@eval.id}/#{@pairwise.id}/0", method: :patch) do %>
-    <button type='submit' class="button4choice button--ujarak button--border-medium button--round-s button--text-thick" name='action' value='send'>どちらも同じレベル</button>
+  <%= form_tag("/evaluates/#{@eval.id}/pairwises/#{@pairwise.id}", method: :patch) do %>
+    <button type='submit' class="button4choice button--ujarak button--border-medium button--round-s button--text-thick" name='greater' value='send'><%= @pairwise.reply_x.sentence %></button>
+    <button type='submit' class="button4choice button--ujarak button--border-medium button--round-s button--text-thick" name='less' value='send'><%= @pairwise.reply_y.sentence %></button>
+    <button type='submit' class="button4choice button--ujarak button--border-medium button--round-s button--text-thick edit_color" name='equality' value='send'>どちらも同じレベル</button>
   <% end %>
 
 </div>

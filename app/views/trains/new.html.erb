@@ -6,7 +6,7 @@
 
 <div class="contents">
   <div class="edit">
-    <%= form_tag("/trains", action: 'update', method: 'patch', remote: true) do %>
+    <%= form_tag("/trains/#{@train.id}", method: 'patch', remote: true) do %>
       <span class="input input--minoru">
         <input class="input__field input__field--minoru" type="text" name="tweet" id="input-1" placeholder="編集内容を入力">
         <label class="input__label input__label--minoru" for="input-1"></label>

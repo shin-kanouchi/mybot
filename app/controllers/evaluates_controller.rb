@@ -16,7 +16,7 @@ class EvaluatesController < ApplicationController
   end
 
   def show
-    @evals = Evaluate.where('user_x_id = ? or user_y_id = ?', current_user.id, current_user.id).order("updated_at DESC")
+    @evals = Evaluate.where('user_x_id = ? or user_y_id = ?', params["id"], params["id"]).order("updated_at DESC")
   end
 
 
