@@ -13,9 +13,7 @@
       <% if user_signed_in? %>
 
         <span>
-          <a class="button button--ujarak button--border-thin button--round-s button--text-medium" rel="nofollow" data-method="delete" href="/users/sign_out">ログアウト</a>
-          <a class="button button--ujarak button--border-thin button--round-s button--text-medium" href="/trains/new">学習する</a>
-          <a class="button button--ujarak button--border-thin button--round-s button--text-medium" href="/users/<%= current_user.id %>">マイページ</a>
+          <a class="button button--ujarak button--border-thin button--round-s button--text-medium" href="/">ホーム</a>
         </span>
         
       <% else %>

@@ -1,0 +1,20 @@
+<h1>Pairwise evaluation</h1>
+
+<div class="contents">
+  文数: <%= @eval.pairwises.count %> / 10
+  <p>
+    <%= @tweet.sentence %>
+  </p>
+  <%= form_tag("/evaluates/#{@eval.id}/#{@pairwise.id}/1", method: :patch) do %>
+    <button type='submit' class="button4choice button--ujarak button--border-medium button--round-s button--text-thick" name='action' value='send'><%= @pairwise.reply_x.sentence %></button>
+  <% end %>
+
+  <%= form_tag("/evaluates/#{@eval.id}/#{@pairwise.id}/2", method: :patch) do %>
+    <button type='submit' class="button4choice button--ujarak button--border-medium button--round-s button--text-thick" name='action' value='send'><%= @pairwise.reply_y.sentence %></button>
+  <% end %>
+
+  <%= form_tag("/evaluates/#{@eval.id}/#{@pairwise.id}/0", method: :patch) do %>
+    <button type='submit' class="button4choice button--ujarak button--border-medium button--round-s button--text-thick" name='action' value='send'>どちらも同じレベル</button>
+  <% end %>
+
+</div>

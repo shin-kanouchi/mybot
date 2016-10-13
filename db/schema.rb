@@ -11,7 +11,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161009052026) do
+ActiveRecord::Schema.define(version: 20161012150109) do
+
+  create_table "evaluates", force: :cascade do |t|
+    t.integer  "evaluator",  limit: 4
+    t.integer  "user_x_id",  limit: 4
+    t.integer  "user_y_id",  limit: 4
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "pairwises", force: :cascade do |t|
+    t.integer  "evaluate_id",     limit: 4
+    t.integer  "tweet_id",        limit: 4
+    t.integer  "reply_x_id",      limit: 4
+    t.integer  "reply_y_id",      limit: 4
+    t.integer  "inequality_flag", limit: 4
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "sentences", force: :cascade do |t|
     t.text     "sentence",   limit: 65535
@@ -29,19 +47,19 @@ ActiveRecord::Schema.define(version: 20161009052026) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string   "email",                  limit: 255, default: "", null: false
-    t.string   "encrypted_password",     limit: 255, default: "", null: false
+    t.string   "email",                  limit: 255,   default: "", null: false
+    t.string   "encrypted_password",     limit: 255,   default: "", null: false
     t.string   "reset_password_token",   limit: 255
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          limit: 4,   default: 0,  null: false
+    t.integer  "sign_in_count",          limit: 4,     default: 0,  null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip",     limit: 255
     t.string   "last_sign_in_ip",        limit: 255
-    t.datetime "created_at",                                      null: false
-    t.datetime "updated_at",                                      null: false
-    t.string   "botname",                limit: 255
+    t.datetime "created_at",                                        null: false
+    t.datetime "updated_at",                                        null: false
+    t.text     "nickname",               limit: 65535
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

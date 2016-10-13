@@ -1,0 +1,8 @@
+<h1>
+バトル結果
+</h1>
+<div class="contents row" >
+  <% @evals.each do |eval| %>
+    <p><%= eval.user_x.nickname %>, <%= eval.user_y.nickname %>, <%= eval.pairwises.group(:inequality_flag).order('count_inequality_flag DESC').limit(1).count(:inequality_flag).keys %></p>
+  <% end %>
+</div>

@@ -1,0 +1,2 @@
+module PairwisesHelper
+end

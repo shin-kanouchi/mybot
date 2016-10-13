@@ -1,1 +1,20 @@
-hello world
+<h1>
+home
+</h1>
+
+<body>
+  <% if user_signed_in? %>
+    <span>
+      <a class="button-home button--ujarak button--border-thin button--round-s button--text-medium" href="/choices/new">4択学習する</a>
+      <a class="button-home button--ujarak button--border-thin button--round-s button--text-medium" href="/trains/new">自由学習する</a>
+
+      <a class="button-home button--ujarak button--border-thin button--round-s button--text-medium" href="/evaluates/new">評価する</a>
+      <a class="button-home button--ujarak button--border-thin button--round-s button--text-medium" href="/evaluates/show">バトル結果を見る</a>
+
+    </span>
+
+  <% else %>
+    hello world
+  <% end %>
+
+</body>

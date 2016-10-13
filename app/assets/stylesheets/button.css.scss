@@ -33,6 +33,25 @@
     text-align: center;
 }
 
+.button-home {
+    min-width: 380px;
+    max-width: 380px;
+    display: block;
+    margin: 10px auto;
+    padding: 8px 0px;
+    border: none;
+    background: none;
+    color: inherit;
+    vertical-align: middle;
+    position: relative;
+    z-index: 1;
+    -webkit-backface-visibility: hidden;
+    -moz-osx-font-smoothing: grayscale;
+    font-size: 1em;
+    text-align: center;
+}
+
+
 /* Typography and Roundedness */
 .button--text-upper {
     letter-spacing: 2px;
