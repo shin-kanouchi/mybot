@@ -1,3 +1,8 @@
+#require 'net/http'
+#require 'uri'
+#require 'pry'
+#require 'json'
+
 class ApplicationController < ActionController::Base
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
@@ -40,6 +45,13 @@ class ApplicationController < ActionController::Base
     Sentence.where(sentence: reply).first_or_create
   end
 
-
+  def user_local_reply(sentence)
+    url = URI.parse(URI.escape("https://chatbot-api.userlocal.jp/api/chat?key=efa8ed2632f3e4588aa8&message=#{sentence}"))
+    res = Net::HTTP.start(url.host, url.port, use_ssl: true){|http|
+        http.get(url.path + "?" + url.query);
+    }
+    obj = JSON.parse(res.body)
+    Sentence.where(sentence: obj["result"]).first_or_create
+  end
 
 end

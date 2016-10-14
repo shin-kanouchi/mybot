@@ -3,8 +3,8 @@ Rails.application.routes.draw do
   root 'tops#index'
 
   #patch 'trains' => 'trains#update'
-  resources :bots, only: [:new, :create, :update]
-  resources :trains, only: [:new, :index, :create, :update]
+  resources :bots, only: [:new, :create, :edit, :update]
+  resources :trains, only: [:new, :index, :create]
   resources :choices, only: [:new, :create, :update]
   
   get  'evaluates/finish' => 'evaluates#finish'

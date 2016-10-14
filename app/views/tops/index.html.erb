@@ -6,20 +6,18 @@ home
   <% if user_signed_in? %>
     <% if Bot.exists?(user_id: current_user.id) %>
       <%= current_user.bot.bot_name %>
+      <span>
+        <a class="button-home button--ujarak button--border-thin button--round-s button--text-medium" href="/choices/new">4択学習する</a>
+        <a class="button-home button--ujarak button--border-thin button--round-s button--text-medium" href="/trains/new">自由学習する</a>
+        <a class="button-home button--ujarak button--border-thin button--round-s button--text-medium" href="/evaluates/new">評価する</a>
+        <a class="button-home button--ujarak button--border-thin button--round-s button--text-medium" href="/evaluates/<%= current_user.id %>">バトル結果を見る</a>
+      </span>
     <% else %>
-      ボットを選んでください
+      <a class="button-home button--ujarak button--border-thin button--round-s button--text-medium" href="/bots/new">botを作成</a>
     <% end %>
-    <span>
-      <a class="button-home button--ujarak button--border-thin button--round-s button--text-medium" href="/choices/new">4択学習する</a>
-      <a class="button-home button--ujarak button--border-thin button--round-s button--text-medium" href="/trains/new">自由学習する</a>
-
-      <a class="button-home button--ujarak button--border-thin button--round-s button--text-medium" href="/evaluates/new">評価する</a>
-      <a class="button-home button--ujarak button--border-thin button--round-s button--text-medium" href="/evaluates/<%= current_user.id %>">バトル結果を見る</a>
-
-    </span>
 
   <% else %>
-    hello world
+    ログインしてください
   <% end %>
 
 </body>
