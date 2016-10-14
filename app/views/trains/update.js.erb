@@ -2,6 +2,8 @@ $('#chat-frame').append("<%= j( render(partial: 'sentence_bot', locals: { senten
 $("#sentence_sentence").val('');
 
 $(".edit_button #new").css("display", "none");
+$("#chat-frame img:last").attr("src","/assets/icon_woman/woman_understanding_<%= current_user.bot.hair_color %>.png");
+
 
 $(".contents div").hide();
 $(".contents .new").show();

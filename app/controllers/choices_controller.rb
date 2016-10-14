@@ -8,16 +8,13 @@ class ChoicesController < ApplicationController
   end
 
   def create
-    params["train_id"].each do |t_id|
-      train_adequacy_plus(1, t_id)
+    if params["train_id"] != nil
+      params["train_id"].each do |t_id|
+        train_adequacy_plus(1, t_id)
+      end
     end
     redirect_to controller: :choices, action: :new
   end
-
-  #def update
-  #  train_adequacy_plus(1)
-  #  redirect_to controller: :choices, action: :new
-  #end
 
   private
   def train_adequacy_plus(score, t_id)

@@ -5,6 +5,7 @@ class CreateBots < ActiveRecord::Migration
       t.text     :bot_name
       t.integer  :bot_rank, default: 0
       t.integer  :battle_point, default: 0
+      t.integer  :hair_color
       t.timestamps 
     end
   end

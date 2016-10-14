@@ -21,7 +21,7 @@ class TrainsController < ApplicationController
 
     #修正後の応答に加点
     @tweet = train.tweet
-    @reply = Sentence.where(sentence: params["tweet"]).first_or_create
+    @reply = Sentence.where(sentence: params["tweet"], source_flag: 0).first_or_create
     train_adequacy_plus(3)
   end
 

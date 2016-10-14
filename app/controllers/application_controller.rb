@@ -38,11 +38,11 @@ class ApplicationController < ActionController::Base
     client = Docomoru::Client.new(api_key: '6c61546d47537763524d6e577a68716b4e70586e49465542326a45432e6c762e41347359366d79756a492f')
     while true
       reply = client.create_dialogue(sentence).body["utt"]
-      if reply.length < 30
+      if reply != nil and reply.length < 30
         break
       end
     end
-    Sentence.where(sentence: reply).first_or_create
+    Sentence.where(sentence: reply, source_flag: 1).first_or_create
   end
 
   def user_local_reply(sentence)
@@ -51,7 +51,7 @@ class ApplicationController < ActionController::Base
         http.get(url.path + "?" + url.query);
     }
     obj = JSON.parse(res.body)
-    Sentence.where(sentence: obj["result"]).first_or_create
+    Sentence.where(sentence: obj["result"], source_flag: 2).first_or_create
   end
 
 end

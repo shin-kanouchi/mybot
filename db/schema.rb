@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(version: 20161013074015) do
     t.text     "bot_name",     limit: 65535
     t.integer  "bot_rank",     limit: 4,     default: 0
     t.integer  "battle_point", limit: 4,     default: 0
+    t.integer  "hair_color",   limit: 4
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -26,6 +27,7 @@ ActiveRecord::Schema.define(version: 20161013074015) do
     t.integer  "evaluator",  limit: 4
     t.integer  "user_x_id",  limit: 4
     t.integer  "user_y_id",  limit: 4
+    t.integer  "win_flag",   limit: 4, default: 3
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -41,7 +43,8 @@ ActiveRecord::Schema.define(version: 20161013074015) do
   end
 
   create_table "sentences", force: :cascade do |t|
-    t.text     "sentence",   limit: 65535
+    t.text     "sentence",    limit: 65535
+    t.integer  "source_flag", limit: 4
     t.datetime "created_at"
     t.datetime "updated_at"
   end
