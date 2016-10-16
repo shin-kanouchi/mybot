@@ -9,6 +9,7 @@ class TrainsController < ApplicationController
 
   def create
     @tweet = Sentence.where(sentence: params["tweet"]).first_or_create
+     logger.debug(@tweet)
     @reply = choose_reply(current_user.id, @tweet.sentence)
     train_adequacy_plus(1)
   end
