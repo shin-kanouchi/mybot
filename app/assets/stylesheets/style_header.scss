@@ -8,6 +8,32 @@ $gray: #D8D8D8;
 $lightGray: #f5f5f3;
 $white: white;
 
+
+html, body, h1, h2, h3, h4, ul, ol, dl, li, dt, dd, div, span, img, a, table, tr, th, td {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-weight: normal;
+  font-size: 100%;
+  vertical-align:baseline;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+} //pも加えたい後で
+article, header, footer, aside, figure, figcaption, nav, section { 
+  display:block;
+}
+body {
+  line-height: 1;
+  -ms-text-size-adjust: 200%;
+  -webkit-text-size-adjust: 200%;
+}
+ol, ul {
+  list-style: none;
+  list-style-type: none;
+}
+
+
 //mixin
 a {
 text-decoration: none;
@@ -29,21 +55,6 @@ body,html {
 }
 body {
   padding-top: 60px;
-}
-
-.btn {
-    @include basePadding(8px 20px);
-    font-size: 14px;
-    border: 2px solid $accent;
-    color: $accent;
-    font-weight: bold;
-    text-align: center;
-    border-radius: 3px;
-    display: inline-block;
-  &:hover {
-    border-color: lighten($accent, 15%);
-    color: lighten($accent, 15%);
-  }
 }
 
 header.header {

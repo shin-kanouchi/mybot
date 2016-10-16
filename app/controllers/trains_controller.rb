@@ -4,7 +4,8 @@ class TrainsController < ApplicationController
   end
 
   def new
-    @sentence = Sentence.where( 'id >= ?', rand(Sentence.count)*10 - 8 ).first
+    #@sentence = Sentence.where( 'id >= ?', rand(Sentence.count)*10 - 8 ).first
+    @sentence = Sentence.where( 'id >= ?', rand(Sentence.count) + 1 ).first
   end
 
   def create
