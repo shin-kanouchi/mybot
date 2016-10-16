@@ -4,12 +4,12 @@ class TrainsController < ApplicationController
   end
 
   def new
-    @sentence = Sentence.where( 'id >= ?', rand(Sentence.count) + 1 ).first
+    @sentence = Sentence.where( 'id >= ?', rand(Sentence.count)*10 - 1 ).first
   end
 
   def create
     @tweet = Sentence.where(sentence: params["tweet"]).first_or_create
-     logger.debug(@tweet)
+    logger.debug(@tweet)
     @reply = choose_reply(current_user.id, @tweet.sentence)
     train_adequacy_plus(1)
   end

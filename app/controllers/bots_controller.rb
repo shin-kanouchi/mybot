@@ -5,7 +5,7 @@ class BotsController < ApplicationController
 
   def create
     Bot.create(bot_name: bot_params[:bot_name], hair_color: bot_params[:hair_color], user_id: current_user.id) #: bot_params[:hair_color]
-    Train.create(user_id: current_user.id, tweet_id: 1, reply_id: 1, adequacy_flag: 1)
+    Train.create(user_id: current_user.id, tweet_id: 2, reply_id: 2, adequacy_flag: 1) #ここエラーの元になりそう
     redirect_to controller: :tops, action: :index
   end
 
