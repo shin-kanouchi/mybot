@@ -16,6 +16,7 @@ ActiveRecord::Schema.define(version: 20161013074015) do
   create_table "bots", force: :cascade do |t|
     t.integer  "user_id",      limit: 4
     t.text     "bot_name",     limit: 65535
+    t.integer  "gender",       limit: 4
     t.integer  "bot_rank",     limit: 4,     default: 0
     t.integer  "battle_point", limit: 4,     default: 0
     t.integer  "hair_color",   limit: 4

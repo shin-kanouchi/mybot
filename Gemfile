@@ -52,3 +52,6 @@ gem 'devise'
 gem 'paperclip'
 gem 'docomoru'
 gem 'levenshtein'
+group :production, :staging do
+  gem 'rails_12factor'
+end

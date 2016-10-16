@@ -3,6 +3,28 @@
 </h1>
 <div class="contents row" >
   <% @evals.each do |eval| %>
-    <p><%= eval.win_or_lose %></p>
+    <% user, enemy, user_win_flag = eval.win_or_lose(@current_user_id) %>
+    <div id="eval-frame">
+    <div class="eval-box">
+      <div class="eval-win-flag">
+        <img alt="Icon" src="/assets/win_lose_image/result_<%= user_win_flag %>.png" width="90" height="90" />
+      </div>
+      <div class="eval-face">
+        <img alt="Icon" src="/assets/icon_woman/woman_normal_<%= user.bot.hair_color %>.png" width="90" height="90" />
+      </div>
+      <div class="eval-hukidashi">
+        <%= user.bot.bot_name %> vs <%= enemy.bot.bot_name %>
+      </div>
+      <div class="eval-face">
+        <img alt="Icon" src="/assets/icon_woman/woman_normal_<%= enemy.bot.hair_color %>.png" width="90" height="90" />
+      </div>
+
+        <div class="edit_button">
+          <button id="edit" type="button" class="button button--ujarak button--border-medium button--round-l button--text-thick edit_color">修正</button>
+          <button id="new" type="button" class="button button--ujarak button--border-medium button--round-l button--text-thick edit_color">x</button>
+        </div>
+    </div>
+    </div>
+
   <% end %>
 </div>
