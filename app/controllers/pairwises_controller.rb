@@ -5,7 +5,7 @@ class PairwisesController < ApplicationController
 
   def new
     @eval = Evaluate.find(params["evaluate_id"])
-    @tweet = Sentence.where( 'id >= ?', rand(Sentence.count) + 1 ).first #最近学習していないもので，という条件を付ける
+    @tweet = Sentence.where( 'id >= ?', rand(Sentence.last.id)).first #最近学習していないもので，という条件を付ける
     reply_x = choose_reply(@eval.user_x_id, @tweet.sentence)
     reply_y = choose_reply(@eval.user_y_id, @tweet.sentence)
     @pairwise = Pairwise.create(evaluate_id: @eval.id, tweet_id: @tweet.id, reply_x_id: reply_x.id, reply_y_id: reply_y.id)
