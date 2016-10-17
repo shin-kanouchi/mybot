@@ -1,5 +1,8 @@
 class ChoicesController < ApplicationController
 
+  def index
+  end
+
   def new
     @tweet = Sentence.where( 'id >= ?', rand(Sentence.last.id) ).first
     @train_1 = train_adequacy_minus(docomo_reply(@tweet.sentence)) #choose_reply
