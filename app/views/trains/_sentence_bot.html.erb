@@ -2,13 +2,15 @@
   <div class="chat-face">
       <img alt="Icon" src="<%= asset_path "icon_woman/woman_normal_#{current_user.bot.hair_color}.png" %>" width="90" height="90" />
   </div>
-  <p class="chat-area">
+  <div class="chat-area">
     <div class="chat-hukidashi">
-      <%= sentence.sentence %>      
+      <p>
+        <%= sentence.sentence %>     
+      </p> 
     </div> 
     <div class="edit_button">
       <button id="edit" type="button" class="button button--ujarak button--border-medium button--round-l button--text-thick edit_color">修正</button>
       <button id="new" type="button" class="button button--ujarak button--border-medium button--round-l button--text-thick edit_color">x</button>
     </div>
-  </p>
+  </div>
 </div>

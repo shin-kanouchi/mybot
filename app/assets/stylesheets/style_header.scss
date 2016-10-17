@@ -1,5 +1,3 @@
-@import "compass";
-
 $accent: #57C3E9;
 $black: #292929;
 $dark: #666;
@@ -9,7 +7,31 @@ $lightGray: #f5f5f3;
 $white: white;
 
 
-html, body, h1, h2, h3, h4, ul, ol, dl, li, dt, dd, div, span, img, a, table, tr, th, td {
+html, body, div, span, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+abbr, address, cite, code,
+del, dfn, em, img, ins, kbd, q, samp,
+small, strong, sub, sup, var,
+b, i,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    font-size: 100%;
+    vertical-align: baseline;
+    background: transparent;
+}
+
+
+
+
+html, body, h1, h2, h3, h4, ul, ol, dl, li, dt, dd, p, div, span, img, a, table, tr, th, td {
   margin: 0;
   padding: 0;
   border: 0;
@@ -19,7 +41,7 @@ html, body, h1, h2, h3, h4, ul, ol, dl, li, dt, dd, div, span, img, a, table, tr
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
-} //pも加えたい後で
+}
 article, header, footer, aside, figure, figcaption, nav, section { 
   display:block;
 }
@@ -32,33 +54,21 @@ ol, ul {
   list-style: none;
   list-style-type: none;
 }
-
-
-//mixin
 a {
 text-decoration: none;
 }
 
-@mixin boxBase($margin: 30px auto, $padding: 10px) {
-  margin: $margin;
-  padding: $padding;
-}
-@mixin basePadding($padding: 10px) {
-  padding: $padding;
-}
-@mixin baseMargin($margin: 10px auto) {
-  margin: $margin;
-}
+
 body,html {
   height: 100%;
   background-color: $lightGray;
 }
 body {
-  padding-top: 60px;
+  padding-top: 55px;
 }
 
+
 header.header {
-  @include basePadding;
   border-bottom: 1px solid $gray;
   background-color: #fff;
   position: fixed;
@@ -69,22 +79,14 @@ header.header {
   div.header__bar.row {
     position: relative;
     h1.grid-6 {
-      font-size: 20px;
-      line-height: 41px;
+      font-weight: bold;
+      font-size: 30px;
+      line-height: 38px;
       float: left;
-      a {
-        display: block;
-      }
-    }
-    div.grid-6 {
-      float: right;
-      text-align: right;
-      a.post {
-        @extend .btn;
-        width: 120px;
-        display: inline-left;
-        margin-left: 10px;
-      }
+      padding: 8px;
     }
   }
+}
+header.header:after {
+  clear: both;
 }

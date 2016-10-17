@@ -1,12 +1,15 @@
-<div class="contents row">
-  <%= form_tag("/bots/#{@bot.id}", method: :patch) do %>
-    <h3>
-      編集する
-    </h3>
-    Bot name:
-    <input placeholder="Bot name" type="text" name="bot_name" value="<%= @bot.bot_name %>" autofocus="true"></input>
-    <br>
-    <input type="submit" value="SENT">
-  <% end %>
-</div>
-
+<head>
+</head>
+<body>
+  <div class="contents row">
+    <%= form_tag("/bots/#{@bot.id}", method: :patch) do %>
+      <h3>
+        編集する
+      </h3>
+      Bot name:
+      <input placeholder="Bot name" type="text" name="bot_name" value="<%= @bot.bot_name %>" autofocus="true"></input>
+      <br>
+      <input type="submit" value="SENT">
+    <% end %>
+  </div>
+</body>

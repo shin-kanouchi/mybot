@@ -1,8 +1,11 @@
-<h1>
-home
-</h1>
+<head>
+</head>
 
 <body>
+  <h1>
+    home
+  </h1>
+
   <% if user_signed_in? %>
     <% if Bot.exists?(user_id: current_user.id) %>
       ユーザー名: <%= current_user.nickname %><br>
@@ -11,7 +14,7 @@ home
       ボットランク: <%= current_user.bot.bot_rank %><br>
       <span>
         <a class="button-home button--ujarak button--border-thin button--round-s button--text-medium" href="/choices/new">4択学習する</a>
-        <a class="button-home button--ujarak button--border-thin button--round-s button--text-medium" href="/trains/new">自由学習する</a>
+        <a class="button-home button--ujarak button--border-thin button--round-s button--text-medium" href="/trains">フリー会話学習</a>
         <a class="button-home button--ujarak button--border-thin button--round-s button--text-medium" href="/evaluates/new">評価する</a>
         <a class="button-home button--ujarak button--border-thin button--round-s button--text-medium" href="/evaluates">バトル結果を見る</a>
       </span>

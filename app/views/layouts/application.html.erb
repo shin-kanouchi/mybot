@@ -5,6 +5,7 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <meta name="viewport" content="width=device-width" >
 </head>
 <body>
   <header class="header">
@@ -12,8 +13,8 @@
       <h1 class="grid-6"><a href="/">Mybot</a></h1>
       <% if user_signed_in? %>
         <span>
-          <a class="button button--ujarak button--border-thin button--round-s button--text-medium" rel="nofollow" data-method="delete" href="/users/sign_out">ログアウト</a>
-          <a class="button button--ujarak button--border-thin button--round-s button--text-medium" href="/">ホーム</a>
+          <a class="button button--ujarak button--border-thin button--round-s button--text-medium" rel="nofollow" data-method="delete" href="/users/sign_out">Log out</a>
+          <a class="button button--ujarak button--border-thin button--round-s button--text-medium" href="/">Home</a>
         </span>
         
       <% else %>

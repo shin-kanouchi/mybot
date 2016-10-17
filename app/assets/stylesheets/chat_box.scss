@@ -6,9 +6,8 @@
 #chat-frame {
   min-width: 320px;
   max-width: 800px;
-  width: device-width;
   margin: auto;
-  padding: 15px 15px;
+  padding: 10px 10px;
   background-color: #FFFFEE;
 }
  
@@ -21,7 +20,7 @@
 }
 .chat-face {
     float: left;
-    margin-right: -65px;
+    //margin-right: -70px;
 }
 .chat-face img {
     width: 60px;
@@ -30,23 +29,29 @@
     border: 1px solid #ccc;
     box-shadow: 0 0 4px #ddd;
 }
-//.chat-area {
-//    width: 100%;
-//    float: right;
-//}
-.chat-hukidashi {
+/*.chat-area {
+    min-width: 240px;
+    //margin-left: 20px;
+    //margin-right: 60px;
+    width: 100% -80px;
     float: left;
-    display: inline-block;
-    padding: 5px 5px;
-    margin-left: 80px;
+    padding: 5px 0px;
+}*/
+div.chat-hukidashi {
+    //height: 20px;
+    float: left;
+    //display: inline-block;
+    //padding: 20px 0px;
+    //margin-left: 65px;
     margin-right: 80px;
-    margin-top: 0px;
+    margin-top: 5px;
     border-radius: 5px;
     position: relative;
     background-color: #D9F0FF;
 }
 .chat-hukidashi p {
-    margin-bottom: 0px;
+    margin-top: 5px;
+    //vertical-align:middle;
 }
 .chat-hukidashi:after {
     content: "";
@@ -62,22 +67,6 @@
     border-color: transparent #D9F0FF transparent transparent;
 }
  
-/*画像右側のチャット*/
-/*.chat-face-right {
-    float: right;
-    margin-left: -120px;
-}
-.chat-face-right img {
-    width: 90px;
-    height: 90px;
-    border-radius: 10px;
-    border: 1px solid #ccc;
-    box-shadow: 0 0 4px #ddd;
-}*/
-//.chat-area-right {
-//    width: 100%;
-//    float: left;
-//}
 .chat-hukidashi-right {
     display: inline-block;
     padding: 5px 5px;
@@ -106,63 +95,12 @@
 }
  
 /*スマホの時は画像を小さく*/
-@media screen and (max-width: 440px) {
- 
-    /*画像左側のチャット*/
-    .chat-face {
-        float: left;
-        margin-right: -80px;
-    }
-    .chat-face img {
-        width: 60px;
-        height: 60px;
-        border-radius: 10px;
-        border: 1px solid #ccc;
-        box-shadow: 0 0 4px #ddd;
-    }
-    .chat-hukidashi {
-        display: inline-block;
-        padding: 10px 10px;
-        margin-left: 80px;
-        margin-top: 0px;
-        border-radius: 10px;
-        position: relative;
-        background-color: #D9F0FF;
-        min-height: 3em;
-    }
- 
- 
-    /*画像右側のチャット*/
-    .chat-face-right {
-        float: right;
-        margin-left: -80px;
-    }
-    .chat-face-right img {
-        width: 60px;
-        height: 60px;
-        border-radius: 10px;
-        border: 1px solid #ccc;
-        box-shadow: 0 0 4px #ddd;
-    }
-    .chat-hukidashi-right {
-        display: inline-block;
-        padding: 10px 10px;
-        margin-right: 80px;
-        margin-top: 0px;
-        border-radius: 10px;
-        position: relative;
-        background-color: #BCF5A9;
-        float: right;
-        min-height: 3em;
-    }
-}
-
 //編集ボタン
 .edit_button{
   position: relative;
-  float: left;
-  margin-left: -75px;
-  margin-top: -10px;
+  float: right;
+  //margin-right: -70px;
+  margin-top: 10px;
 }
 
 .edit_color{

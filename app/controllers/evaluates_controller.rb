@@ -7,7 +7,7 @@ class EvaluatesController < ApplicationController
 
   def new #テスト開始時 createと分けたほうがいいかも
     evaluator = current_user.id
-    user_x = User.where( 'id >= ?', rand(Sentence.last.id)).first #ここの選び方を直す
+    user_x = User.where( 'id >= ?', rand(User.last.id)).first #ここの選び方を直す
     while true
       user_y_id = rand(User.count) + 1 
       if user_y_id != user_x.id and User.find_by_id(user_y_id)

@@ -1,7 +1,7 @@
-<div class="contents row" >
-  <% @trains.each do |train| %>
-    <% if train.tweet.present? && train.reply.present? %>
-      <p><%= train.tweet.sentence %><%= train.reply.sentence %></p>
-    <% end %>
-  <% end %>
-</div>
+<body>
+
+  <p>・自由に会話をしながら人工知能ちゃんに会話を教えてあげるモード</p>
+  <p>・人工知能ちゃんの発言を訂正してあげることで，人工知能ちゃんが発言を学習していく</p>
+  <p>・ ここの絵を描く</p>
+  <a class="button-home button--ujarak button--border-thin button--round-s button--text-medium" href="/trains/new">開始</a>
+</body>
