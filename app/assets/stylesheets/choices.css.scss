@@ -1,3 +1,83 @@
-// Place all the styles related to the choices controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+p.question{
+  margin: 10px 20px;
+  padding: 10px;
+  border: medium solid #000770;
+  background: #F3FFD8;  
+}
+
+.pt20{
+  padding-top: 10px;
+}
+
+.pos-center{
+  //margin: 0px auto;
+  padding: 0 20px;
+}
+
+.checkbox-wrap{
+}
+.label-checkbox input[type="checkbox"]{
+  display: none;
+}
+.label-checkbox{
+  cursor: pointer;
+  position: relative;
+}
+.label-checkbox .lever{
+  text-align : center;
+  min-width: 340px;
+  max-width: 360px;
+  //margin: 5px auto 5px auto;
+  display: block;
+  color: #000;
+  font-weight: normal;
+  display: inline-block;
+  padding: 8px 35px;
+  border: 1px solid #e5e5e5;
+  //border-radius: 20px;
+  margin-right: 12px;
+  margin-bottom: 10px;
+  -webkit-transition: all 300ms cubic-bezier(1, 0, 0, 1);
+  -moz-transition: all 300ms cubic-bezier(1, 0, 0, 1);
+  -o-transition: all 300ms cubic-bezier(1, 0, 0, 1);
+  transition: all 300ms cubic-bezier(1, 0, 0, 1);
+  -webkit-transition-timing-function: cubic-bezier(1, 0, 0, 1);
+  -moz-transition-timing-function: cubic-bezier(1, 0, 0, 1);
+  -o-transition-timing-function: cubic-bezier(1, 0, 0, 1);
+  transition-timing-function: cubic-bezier(1, 0, 0, 1);
+}
+.label-checkbox .lever:before{
+  content:'';
+  position: absolute;
+  left: 5px;
+  top: -6px;
+  border: 1px solid #e5e5e5;
+  background: #fff;
+  width: 26px;
+  height: 26px;
+  //border-radius:100%;
+  -webkit-transition: all 300ms cubic-bezier(1, 0, 0, 1);
+  -moz-transition: all 300ms cubic-bezier(1, 0, 0, 1);
+  -o-transition: all 300ms cubic-bezier(1, 0, 0, 1);
+  transition: all 300ms cubic-bezier(1, 0, 0, 1);
+  -webkit-transition-timing-function: cubic-bezier(1, 0, 0, 1);
+  -moz-transition-timing-function: cubic-bezier(1, 0, 0, 1);
+  -o-transition-timing-function: cubic-bezier(1, 0, 0, 1);
+  transition-timing-function: cubic-bezier(1, 0, 0, 1);
+}
+.label-checkbox:hover .lever:before{
+   border-color: #ddd;
+}
+.label-checkbox input[type="checkbox"]:checked + .lever{
+   background: #5cb85c;
+   color: #fff;
+}
+.label-checkbox input[type="checkbox"]:checked + .lever{
+   border-color:#5cb85c;
+}
+.label-checkbox input[type="checkbox"]:checked + .lever:before{
+   left: 100%;
+   margin-left: -44px;
+   border-color: #fff;
+}
+
