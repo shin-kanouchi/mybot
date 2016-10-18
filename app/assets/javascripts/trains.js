@@ -1,3 +1,9 @@
+
+function double(btn){
+    $("form[name='" + btn + "']").submit();
+    $("div." + btn + " button").prop('disabled', true);
+}
+
 /*$(document).on('turbolinks:load page:change', function(){
   $(".edit_button button").on("click", function() {
 

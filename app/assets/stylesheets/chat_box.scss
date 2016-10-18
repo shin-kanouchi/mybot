@@ -5,7 +5,7 @@
 
 #chat-frame {
   min-width: 320px;
-  max-width: 800px;
+  max-width: 600px;
   margin: auto;
   padding: 10px 10px;
   background-color: #FFFFEE;
@@ -29,36 +29,33 @@
     border: 1px solid #ccc;
     box-shadow: 0 0 4px #ddd;
 }
-/*.chat-area {
+.chat-area {
     min-width: 240px;
-    //margin-left: 20px;
-    //margin-right: 60px;
-    width: 100% -80px;
+    max-width: 500px;
+    width: calc(100% - 65px);
     float: left;
-    padding: 5px 0px;
-}*/
+    padding: 0px 0px;
+}
 div.chat-hukidashi {
-    //height: 20px;
+    max-width: calc(100% - 80px);
     float: left;
     //display: inline-block;
     //padding: 20px 0px;
-    //margin-left: 65px;
-    margin-right: 80px;
-    margin-top: 5px;
-    border-radius: 5px;
+    margin-left: 15px;
+    margin-top: 8px;
+    border-radius: 7px;
     position: relative;
     background-color: #D9F0FF;
 }
 .chat-hukidashi p {
-    margin-top: 5px;
-    //vertical-align:middle;
+    margin: 8px 5px 8px 5px;
 }
 .chat-hukidashi:after {
     content: "";
     position: absolute;
-    top: 15px;
-    left: -10px;
-    margin-top: -10px;
+    top: 4px;
+    left: -8px;
+    //margin-top: -10px;
     display: block;
     width: 0px;
     height: 0px;
@@ -69,23 +66,22 @@ div.chat-hukidashi {
  
 .chat-hukidashi-right {
     display: inline-block;
-    padding: 5px 5px;
-    margin-right: 20px;
+    margin-right: 15px;
     margin-top: 0px;
-    border-radius: 5px;
+    border-radius: 7px;
     position: relative;
     background-color: #BCF5A9;
     float: right;
 }
 .chat-hukidashi-right p {
-    margin-bottom: 0px;
+    //margin-bottom: 0px;
+    margin: 8px 5px 8px 5px;
 }
 .chat-hukidashi-right:after {
     content: "";
     position: absolute;
-    top: 15px;
-    right: -20px;
-    margin-top: -10px;
+    top: 4px;
+    right: -17px;
     display: block;
     width: 0px;
     height: 0px;
@@ -94,13 +90,12 @@ div.chat-hukidashi {
     border-color: transparent transparent transparent #BCF5A9;
 }
  
-/*スマホの時は画像を小さく*/
 //編集ボタン
 .edit_button{
   position: relative;
-  float: right;
+  float: left;
   //margin-right: -70px;
-  top: 10px;
+  //top: 10px;
   //margin-top: 10px;
 }
 

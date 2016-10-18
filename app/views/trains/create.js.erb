@@ -17,6 +17,9 @@ $('.contents .edit form').attr('action', "/trains/<%= @train.id %>");
 //したまでスクロール
 window.scroll(0,$('#chat-frame').height());
 
+$('div.new button').prop('disabled', false);
+$('div.edit button').prop('disabled', false);
+
 $(".edit_button button").on("click", function() {
 
   //初期化
