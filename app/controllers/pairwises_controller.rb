@@ -25,16 +25,23 @@ class PairwisesController < ApplicationController
       @eval.win_flag = calc_win_flag
       @eval.save
 
-      #バトルポイント付与
-      bot = Bot.where('user_id = ?', current_user.id).first
-      bot.battle_point += 1
-      bot.save
+      #評価者のバトルポイントプラス
+      bp_operation(Bot.where('user_id = ?', current_user.id).first, 1)
+
+      #被評価者のバトルポイントマイナス
+      bp_operation(Bot.where('user_id = ?', @eval.user_x.id).first, -1)
+      bp_operation(Bot.where('user_id = ?', @eval.user_y.id).first, -1)
 
       #rankの操作
       calc_rank
 
       redirect_to controller: :pairwises, action: :index
     end
+  end
+
+  def bp_operation(bot, plus_minus)
+    bot.battle_point += plus_minus
+    bot.save
   end
 
   def calc_win_flag
