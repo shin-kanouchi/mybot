@@ -7,18 +7,20 @@
   min-width: 320px;
   max-width: 800px;
   margin: auto;
-  padding: 15px 15px;
+  padding: 15px 10px;
   background-color: #FFFFEE;
 }
 
-
+.eval-box.win-1{
+    background-color: #CCFF33;
+}
 
 /*画像左側のチャット*/
 .eval-box {
     width: 100%;
     height: auto;
     overflow: hidden;
-    margin-bottom: 5px;
+    margin-top: 5px;
 }
 .eval-win-flag {
      float: left;
@@ -27,13 +29,11 @@
 .eval-win-flag img {
      width: 30px;
      height: 30px;
-     margin: 15px 10px;
+     margin: 14px 0px;
  }
 .eval-face {
     float: left;
-    margin: 0px 5px;
-    //margin-left: 80;
-    //margin-right: -65px;
+    margin: 1px 5px;
 }
 .eval-face img {
     width: 60px;
@@ -42,63 +42,30 @@
     border: 1px solid #ccc;
     box-shadow: 0 0 4px #ddd;
 }
-//.chat-area {
-//    width: 100%;
-//    float: right;
-//}
 .eval-hukidashi {
+    width: 180px;
     float: left;
     display: inline-block;
-    padding: 5px 5px;
-    margin: 15px 5px;
-    border-radius: 5px;
+    padding: 2px 5px;
+    margin: 2px 5px;
+    //border-radius: 5px;
     position: relative;
-    background-color: #D9F0FF;
-}
-.eval-hukidashi p {
-    margin-bottom: 0px;
-}
- 
-/*画像右側のチャット*/
-/*.chat-face-right {
-    float: right;
-    margin-left: -120px;
-}
-.chat-face-right img {
-    width: 90px;
-    height: 90px;
-    border-radius: 10px;
-    border: 1px solid #ccc;
-    box-shadow: 0 0 4px #ddd;
-}*/
-//.chat-area-right {
-//    width: 100%;
-//    float: left;
-//}
-.eval-hukidashi-right {
-    display: inline-block;
-    padding: 5px 5px;
-    margin-right: 20px;
-    margin-top: 0px;
-    border-radius: 5px;
-    position: relative;
-    background-color: #BCF5A9;
-    float: right;
-}
-.eval-hukidashi-right p {
-    margin-bottom: 0px;
-}
-.eval-hukidashi-right:after {
-    content: "";
-    position: absolute;
-    top: 15px;
-    right: -20px;
-    margin-top: -10px;
-    display: block;
-    width: 0px;
-    height: 0px;
-    border-style: solid;
-    border-width: 10px 10px 10px 10px;
-    border-color: transparent transparent transparent #BCF5A9;
+    //background-color: #D9F0FF;
+    .time{
+        text-align: center;
+        font-size: 50%;
+        margin-bottom: 2px;
+    }
+    .top{
+        font-size: 90%;
+    }
+    .middle{
+        text-align: center;
+        font-size: 70%;
+    }
+    .bottom{
+        font-size: 90%;
+        text-align: right;
+    }
 }
  

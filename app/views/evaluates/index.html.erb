@@ -4,29 +4,30 @@
   <h1>
   バトル結果
   </h1>
-  <div class="contents row" >
+  <div class="contents row" id="eval-frame">
     <% @evals.each do |eval| %>
-      <% user, enemy, user_win_flag = eval.win_or_lose(@current_user_id) %>
-      <div id="eval-frame">
-      <div class="eval-box">
+      <% user, enemy, user_win_flag, user_face, enemy_face = eval.win_or_lose(@current_user_id) %>
+      <div class="eval-box win-<%=user_win_flag%>">
         <div class="eval-win-flag">
           <img alt="Icon" src="<%= asset_path "win_lose_image/result_#{user_win_flag}.png" %>" width="90" height="90" />
         </div>
         <div class="eval-face">
-          <img alt="Icon" src="<%= asset_path "icon_woman/woman_normal_#{user.bot.hair_color}.png" %>" width="90" height="90" />
+          <img alt="Icon" src="<%= asset_path "icon_woman/woman_#{user_face}_#{user.bot.hair_color}.png" %>" width="90" height="90" />
         </div>
-        <div class="eval-hukidashi">
-          <%= user.bot.bot_name %> vs <%= enemy.bot.bot_name %>
+        <div class="eval-hukidashi"> 
+          <p class="time"> <%=  eval.updated_at.strftime("%Y年%m月%d日 %H時%M分") %> </p>
+          <p class="top"> <%= user.bot.bot_name %> </p>
+          <p class="middle"> vs </p>
+          <p class="bottom"> <%= enemy.bot.bot_name %> </p>
         </div>
         <div class="eval-face">
-          <img alt="Icon" src="<%= asset_path "icon_woman/woman_normal_#{enemy.bot.hair_color}.png" %>" width="90" height="90" />
+          <img alt="Icon" src="<%= asset_path "icon_woman/woman_#{enemy_face}_#{enemy.bot.hair_color}.png" %>" width="90" height="90" />
         </div>
   
           <div class="edit_button">
             <button id="edit" type="button" class="button button--ujarak button--border-medium button--round-l button--text-thick edit_color">修正</button>
             <button id="new" type="button" class="button button--ujarak button--border-medium button--round-l button--text-thick edit_color">x</button>
           </div>
-      </div>
       </div>
   
     <% end %>

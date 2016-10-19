@@ -26,7 +26,7 @@ class PairwisesController < ApplicationController
       @eval.save
 
       #評価者のバトルポイントプラス
-      bp_operation(Bot.where('user_id = ?', current_user.id).first, 1)
+      bp_operation(Bot.where('user_id = ?', current_user.id).first, 2)
 
       #被評価者のバトルポイントマイナス
       bp_operation(Bot.where('user_id = ?', @eval.user_x.id).first, -1)

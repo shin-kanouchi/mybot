@@ -13,7 +13,8 @@ class Evaluate < ActiveRecord::Base
       enemy = user_x
       user_win_flag = inverse_win_flag
     end
-    return user, enemy, user_win_flag
+    user_face, enemy_face = make_face_image(user_win_flag)
+    return user, enemy, user_win_flag, user_face, enemy_face
   end
 
   def inverse_win_flag
@@ -26,5 +27,14 @@ class Evaluate < ActiveRecord::Base
     end
   end
 
+  def make_face_image(win_flag)
+    if win_flag == 1
+      return "normal", "thinking"
+    elsif win_flag == 2
+      return "thinking", "normal"
+    else
+      return "normal", "normal"
+    end
+  end
 
 end
