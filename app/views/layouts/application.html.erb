@@ -12,11 +12,10 @@
     <div class="header__bar row">
       <h1 class="grid-6"><a href="/">Mybot</a></h1>
       <% if user_signed_in? %>
+        <div class="header-center"></div>
         <span>
-          <a class="button button--ujarak button--border-thin button--round-s button--text-medium" rel="nofollow" data-method="delete" href="/users/sign_out">Log out</a>
-          <a class="button button--ujarak button--border-thin button--round-s button--text-medium" href="/">Home</a>
-        </span>
-        
+          <a class="home" href="/"><img src="<%= asset_path "home.jpeg" %>" alt="home"></a>
+        </span>        
       <% else %>
         <a class="button button--ujarak button--border-thin button--round-s button--text-medium" href="/users/sign_in">ログイン</a>
         <a class="button button--ujarak button--border-thin button--round-s button--text-medium" href="/users/sign_up">新規登録</a>

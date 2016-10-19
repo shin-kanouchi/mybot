@@ -86,8 +86,23 @@ header.header {
       float: left;
       padding: 8px;
     }
+    img {
+      width: 30px;
+      height: 30px;
+      float: right;
+      margin: 10px;
+    }
   }
 }
 header.header:after {
   clear: both;
 }
+
+.header-center{
+  width: 190px;
+  float: left;
+  font-size: 30px;
+  text-align: center;
+  margin: 10px 0px 10px 20px;
+}
+

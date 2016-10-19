@@ -1,39 +1,37 @@
-<head>
-</head>
-<body>
-  <div class="contents">
-    <p class="question">
-      <%= @tweet.sentence %>
-    </p>
-  
-    <%= form_tag("/choices", method: :post) do %>
+<script>$('div.header-center').html("<%= params[:id] %> /10");</script>
 
-      <div class="container pt20">
-        <div class="form-group checkbox-wrap text-center">
-          <div class="pos-center">
-            <label class="label-checkbox">
-              <input type="checkbox" name="train_id[]" value="<%= @train_1.id %>" />
-              <span class="lever"><%= @train_1.reply.sentence %></span>
-            </label><br>
-          </div>
-          <div class="pos-center">
-            <label class="label-checkbox">
-              <input type="checkbox" name="train_id[]" value="<%= @train_2.id %>" />
-              <span class="lever"><%= @train_2.reply.sentence %></span>
-            </label><br>
-          </div>
-          <div class="pos-center">
-            <label class="label-checkbox">
-              <input type="checkbox" name="train_id[]" value="<%= @train_3.id %>"/>
-              <span class="lever"><%= @train_3.reply.sentence %></span>
-            </label><br>
-          </div>
+<div class="contents">
+  <p class="question">
+    <%= @tweet.sentence %>
+  </p>
+
+  <%= form_tag("/choices/#{params[:id]}", method: :patch) do %>
+    <input type="text" name="dummy" value="" style="display:none;">
+    <div class="container pt20">
+      <div class="form-group checkbox-wrap text-center">
+        <div class="pos-center">
+          <label class="label-checkbox">
+            <input type="checkbox" name="train_id[]" value="<%= @train_1.id %>" />
+            <span class="lever"><%= @train_1.reply.sentence %></span>
+          </label><br>
+        </div>
+        <div class="pos-center">
+          <label class="label-checkbox">
+            <input type="checkbox" name="train_id[]" value="<%= @train_2.id %>" />
+            <span class="lever"><%= @train_2.reply.sentence %></span>
+          </label><br>
+        </div>
+        <div class="pos-center">
+          <label class="label-checkbox">
+            <input type="checkbox" name="train_id[]" value="<%= @train_3.id %>"/>
+            <span class="lever"><%= @train_3.reply.sentence %></span>
+          </label><br>
         </div>
       </div>
+    </div>
 
-      <button type='submit' class="button4choice button--ujarak button--border-medium button--round-s button--text-thick edit_color" name='action' value='send'>選択完了</button>
+    <button type='submit' class="button4choice button--ujarak button--border-medium button--round-s button--text-thick edit_color" name='action' value='send'>選択完了</button>
 
-    <% end %>
+  <% end %>
 
-  </div>
-</body>
+</div>

@@ -10,13 +10,17 @@ class ChoicesController < ApplicationController
     @train_3 = train_adequacy_minus(user_reply(current_user.id, @tweet.sentence, min_diff_score=200))
   end
 
-  def create
+  def update
     if params["train_id"] != nil
       params["train_id"].each do |t_id|
         train_adequacy_plus(1, t_id)
       end
     end
-    redirect_to controller: :choices, action: :new
+    if params["id"].to_i < 10
+      redirect_to controller: :choices, action: :new, id: params["id"].to_i + 1
+    else
+      redirect_to controller: :choices, action: :index
+    end
   end
 
   private

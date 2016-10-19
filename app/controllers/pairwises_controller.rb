@@ -40,7 +40,7 @@ class PairwisesController < ApplicationController
   end
 
   def bp_operation(bot, plus_minus)
-    bot.battle_point += plus_minus
+    bot.battle_point = [bot.battle_point + plus_minus, 0].max
     bot.save
   end
 
@@ -64,18 +64,33 @@ class PairwisesController < ApplicationController
     bot_x = Bot.where(user_id: @eval.user_x_id).first
     bot_y = Bot.where(user_id: @eval.user_y_id).first
     if @eval.win_flag == 1
-      bot_x.bot_rank += 10
-      bot_y.bot_rank -= 5
+      bot_x.bot_rank += 2 * rank_margin(bot_x.bot_rank)
+      bot_y.bot_rank -= 10
     elsif @eval.win_flag == 2
-      bot_x.bot_rank -= 5
-      bot_y.bot_rank += 10
+      bot_x.bot_rank -= 10
+      bot_y.bot_rank += 2 * rank_margin(bot_y.bot_rank)
     else
-      bot_x.bot_rank += 2
-      bot_y.bot_rank += 2
+      bot_x.bot_rank += rank_margin(bot_x.bot_rank)
+      bot_y.bot_rank += rank_margin(bot_y.bot_rank)
     end
     bot_x.save
     bot_y.save
   end
 
-
+  def rank_margin(rank)
+    #d:~200, c:~400, b:~600, a:~800, s:~1000 ss:1000~
+    if rank < 200
+      return 16
+    elsif rank < 400
+      return 12
+    elsif rank < 600
+      return 8
+    elsif rank < 800
+      return 6
+    elsif rank < 1000
+      return 5
+    else
+      return 4
+    end
+  end 
 end

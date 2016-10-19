@@ -8,4 +8,9 @@ class TopsController < ApplicationController
     redirect_to action: :index unless user_signed_in?
   end
 
+  def ranking
+    @bots = Bot.order('bot_rank DESC').limit(10)
+  end
+
+
 end
