@@ -5,10 +5,10 @@
     <%= @tweet.sentence %>
   </p>
 
-  <%= form_tag("/evaluates/#{@eval.id}/pairwises/#{@pairwise.id}", method: :patch) do %>
-    <button type='submit' class="button4choice button--ujarak button--border-medium button--round-s button--text-thick" name='inequality_flag' value="1"><%= @pairwise.reply_x.sentence %></button>
-    <button type='submit' class="button4choice button--ujarak button--border-medium button--round-s button--text-thick" name='inequality_flag' value="2"><%= @pairwise.reply_y.sentence %></button>
-    <button type='submit' class="button4choice button--ujarak button--border-medium button--round-s button--text-thick edit_color" name='inequality_flag' value="0">どちらも同じレベル</button>
+  <%= form_tag("/evaluates/#{@eval.id}/pairwises/#{@pairwise.id}", method: :patch, name: "eval-new") do %>
+    <input type="hidden" name="inequality_flag" value="0">
+    <button type='button' class="button4choice button--ujarak button--border-medium button--round-s button--text-thick" onclick="pair_double('1')"><%= @pairwise.reply_x.sentence %></button>
+    <button type='button' class="button4choice button--ujarak button--border-medium button--round-s button--text-thick" onclick="pair_double('2')"><%= @pairwise.reply_y.sentence %></button>
+    <button type='button' class="button4choice button--ujarak button--border-medium button--round-s button--text-thick edit_color" onclick="_pair_double('0')">どちらも同じレベル</button>
   <% end %>
-
 </div>

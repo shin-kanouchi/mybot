@@ -5,7 +5,7 @@
     <%= @tweet.sentence %>
   </p>
 
-  <%= form_tag("/choices/#{params[:id]}", method: :patch) do %>
+  <%= form_tag("/choices/#{params[:id]}", method: :patch, name: "choice-new") do %>
     <input type="text" name="dummy" value="" style="display:none;">
     <div class="container pt20">
       <div class="form-group checkbox-wrap text-center">
@@ -30,8 +30,9 @@
       </div>
     </div>
 
-    <button type='submit' class="button4choice button--ujarak button--border-medium button--round-s button--text-thick edit_color" name='action' value='send'>選択完了</button>
-
+    <div class="choice-new">
+      <button type='button' class="button4choice button--ujarak button--border-medium button--round-s button--text-thick edit_color" name='action' value='send' onclick="double('choice-new')">選択完了</button>
+    </div>
   <% end %>
 
 </div>

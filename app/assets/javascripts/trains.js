@@ -4,6 +4,19 @@ function double(btn){
     $("div." + btn + " button").prop('disabled', true);
 }
 
+function pair_double(btn){
+    $('input[name="inequality_flag"]').val(btn)
+    $('form[name="eval-new"]').submit();
+    $("div button").prop('disabled', true);
+    //$("div").prop('disabled', true);
+
+    //$("div." + btn + " button").removeAttr('onclick').submit();
+    //this.form.submit();
+    //$("div." + btn + " button").prop('disabled', true);
+
+    //$('form').removeAttr('onsubmit').submit();
+}
+
 /*$(document).on('turbolinks:load page:change', function(){
   $(".edit_button button").on("click", function() {
 
