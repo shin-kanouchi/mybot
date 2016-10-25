@@ -7,17 +7,15 @@
     バトルポイント: <%= current_user.bot.battle_point %><br>
     ボットランク: <%= current_user.bot.bot_rank %><br>
     <span>
-      <a class="button-home button--ujarak button--border-thin button--round-s button--text-medium" href="/choices">選択学習</a>
-      <a class="button-home button--ujarak button--border-thin button--round-s button--text-medium" href="/trains">フリー会話学習</a>
+      <a class="button-home button--ujarak button--border-thin button--round-s button--text-medium" href="/trains">学習</a>
       <a class="button-home button--ujarak button--border-thin button--round-s button--text-medium" href="/evaluates/new">評価する</a>
       <a class="button-home button--ujarak button--border-thin button--round-s button--text-medium" href="/evaluates">バトル結果</a>
-      <a class="button-home button--ujarak button--border-thin button--round-s button--text-medium" href="/tops/ranking">ランキング</a>
-      <a class="button-home button--ujarak button--border-thin button--round-s button--text-medium" href="/bots/<%= current_user.bot.id %>">マイページ</a>
+      <a class="home" href="/tops/ranking"><img src="<%= asset_path "ranking.png" %>" alt="ranking" width="90"/></a>
     </span>
   <% else %>
     <a class="button-home button--ujarak button--border-thin button--round-s button--text-medium" href="/bots/new">botを作成</a>
   <% end %>
-
+  <a class="button-home button--ujarak button--border-thin button--round-s button--text-medium" href="/tops/<%= current_user.id %>">マイページ</a>
 <% else %>
   ログインしてください
 <% end %>

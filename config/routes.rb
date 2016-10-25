@@ -1,11 +1,12 @@
 Rails.application.routes.draw do
   devise_for :users
   root 'tops#index'
-  get 'tops/ranking' => 'tops#ranking'
 
   #patch 'trains' => 'trains#update'
-  resources :bots, only: [:new, :create, :edit, :update, :show]
-  resources :trains, only: [:new, :index, :create, :update]
+  get 'tops/ranking' => 'tops#ranking'
+  resources :tops, only: [:show]
+  resources :bots, only: [:new, :create, :edit, :update]
+  resources :trains, only: [:new, :index, :create, :update, :show]
   resources :choices, only: [:index, :update]  
   get 'choices/new/:id' => 'choices#new'
 

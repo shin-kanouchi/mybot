@@ -25,10 +25,6 @@ class BotsController < ApplicationController
     bot.destroy if bot.user_id == current_user.id
   end
 
-  def show
-    @bot = Bot.find(params[:id])
-  end
-
   private
   def bot_params
     params.permit(:bot_name, :hair_color) #:character_flag. :hair_color
