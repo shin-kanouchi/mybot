@@ -1,11 +1,12 @@
 <script>$('div.header-center').html("<%= params[:id] %> /10");</script>
 
 <div class="contents">
+  <p>質問文</p>
   <p class="question">
     <%= @tweet.sentence %>
   </p>
 
-  <%= form_tag("/choices/#{params[:id]}", method: :patch, name: "choice-new") do %>
+  <%= form_tag("/topics/#{params[:topic_id]}/choices/#{params[:id]}", method: :patch, name: "choice-new") do %>
     <input type="text" name="dummy" value="" style="display:none;">
     <div class="container pt20">
       <div class="form-group checkbox-wrap text-center">
@@ -32,7 +33,7 @@
 
     <div class="choice-new">
       <button type='button' class="button4choice button--ujarak button--border-medium button--round-s button--text-thick edit_color" name='action' value='send' onclick="double('choice-new')">選択完了</button>
+      <button type='button' class="button button--ujarak button--border-medium button--round-s button--text-thick" name='action' value='send' onclick="double_badq(<%=@tweet.id%>)">質問が悪い</button>
     </div>
   <% end %>
-
 </div>

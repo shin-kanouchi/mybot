@@ -1,9 +1,7 @@
-<head>
-</head>
-<body>
-  <h1>
-  バトル結果
-  </h1>
+<script>$('h2.grid-6').html("<a href='/'>戻る</a>");</script>
+<script>$('div.header-center').html('戦績');</script>
+
+<div class="contents">
   <div class="contents row" id="eval-frame">
     <% @evals.each do |eval| %>
       <% user, enemy, user_win_flag, user_face, enemy_face = eval.win_or_lose(@current_user_id) %>
@@ -32,4 +30,4 @@
   
     <% end %>
   </div>
-</body>
+</div>

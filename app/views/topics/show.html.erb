@@ -1,0 +1,27 @@
+<script>$('h2.grid-6').html("<a href='/topics'>戻る</a>");</script>
+<script>$('div.header-center').html("テーマ: 「<%= @topic.topic_name %>」");</script>
+
+<div class="contents">
+  <div class="topic-box">
+    <div class="topic-title-button clearfix">
+      <h1 class="topic-title">一問一答</h1>
+      <a class="button-topic button--ujarak button--border-thin button--round-s button--text-medium" href="/topics/<%= @topic.id %>/choices/new/1">開始</a>
+    </div>
+    <div class="topic-exp">経験値:   <%= @choice_exp %> /1000 </div>
+    <p>・ある発言が来たときに自分のボットがどう答えるべきか選択する</p>
+    <p>・選択できる数は0~3個で，選択した応答が正しいだと学習する</p>
+    <p>・選択が0個の場合は，全部の選択肢が悪かったことになる</p>
+    <p>・質問文が悪くて答えようがないときは，右下の「質問文が悪い」をタップして報告</p>
+  </div>
+  <br>
+  <div class="topic-box">
+    <div class="topic-title-button clearfix">
+      <h1 class="topic-title">自由会話</h1>
+      <a class="button-topic button--ujarak button--border-thin button--round-s button--text-medium" href="/topics/<%= @topic.id %>/trains/new">開始</a>
+    </div>
+    <div class="topic-exp">経験値:   <%= @free_exp %> /1000 </div>
+    <p>・ボットと自由入力で会話をする</p>
+    <p>・ボットの応答がおかしいときに「修正」ボタンを押して答えて欲しい文を入力すると，正しい応答を学習する</p>
+    <p>・はじめはボットから会話が始まり，5往復したら終わりとなる</p>
+  </div>
+</div>

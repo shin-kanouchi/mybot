@@ -3,5 +3,6 @@ class Sentence < ActiveRecord::Base
   has_many :replys, through: :tweet_replys
   has_many :reply_tweets, class_name: "Train", foreign_key: :reply_id
   has_many :tweets, through: :reply_tweets
+  belongs_to :topic
   
 end

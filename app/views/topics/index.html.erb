@@ -1,0 +1,10 @@
+<script>$('h2.grid-6').html("<a href='/'>戻る</a>");</script>
+<script>$('div.header-center').html("テーマ選択");</script>
+
+<div class="contents">
+  <p>学習テーマを選択してください</p>
+
+  <% Topic.all.each do |topic| %>
+    <a class="button-home button--ujarak button--border-thin button--round-s button--text-medium" href="/topics/<%= topic.id %>"><%= topic.topic_name %></a>
+  <% end %>
+</div>

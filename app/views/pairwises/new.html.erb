@@ -1,14 +1,17 @@
-<script>$('div.header-center').html("<%= @eval.pairwises.count %> /10");</script>
+<script>$('div.header-center').html("<%= @train_num %> /10");</script>
 
 <div class="contents">
+  <p>質問文</p>
   <p class="question">
     <%= @tweet.sentence %>
   </p>
 
-  <%= form_tag("/evaluates/#{@eval.id}/pairwises/#{@pairwise.id}", method: :patch, name: "eval-new") do %>
+  <%= form_tag("/evaluates/#{@eval.id}/pairwises/#{@train_num}", method: :patch, name: "eval-new") do %>
     <input type="hidden" name="inequality_flag" value="0">
-    <button type='button' class="button4choice button--ujarak button--border-medium button--round-s button--text-thick" onclick="pair_double('1')"><%= @pairwise.reply_x.sentence %></button>
-    <button type='button' class="button4choice button--ujarak button--border-medium button--round-s button--text-thick" onclick="pair_double('2')"><%= @pairwise.reply_y.sentence %></button>
-    <button type='button' class="button4choice button--ujarak button--border-medium button--round-s button--text-thick edit_color" onclick="_pair_double('0')">どちらも同じレベル</button>
+    <button type='button' class="button-pair button--ujarak button--border-medium button--round-s button--text-thick" onclick="pair_double('1')"><%= @pairwise.reply_x.sentence %></button>
+    <button type='button' class="button-pair button--ujarak button--border-medium button--round-s button--text-thick" onclick="pair_double('2')"><%= @pairwise.reply_y.sentence %></button>
+    <% if current_user.id = @eval.evaluator%>
+      <button type='button' class="button-pair button--ujarak button--border-medium button--round-s button--text-thick edit_color" onclick="pair_double('0')">どちらも同じレベル</button>
+    <% end %>
   <% end %>
 </div>

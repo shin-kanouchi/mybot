@@ -12,7 +12,11 @@ $(".edit_button #edit").css("display", "block");
 $("input[type='text']").val("");
 
 //修正時のupdateのurlを更新
-$('.contents .edit form').attr('action', "/trains/<%= @train.id %>");
+$('.contents .edit form').attr('action', "/topics/<%=params[:topic_id]%>/trains/<%= @train.id %>");
+
+$('div.header-center').html("<%= @train_num %> /5");
+$('input[name="train_num"]').val(<%= @train_num %>);
+$('input[name="old_reply_id"]').val(<%= @reply.id %>);
 
 //したまでスクロール
 window.scroll(0,$('#chat-frame').height());

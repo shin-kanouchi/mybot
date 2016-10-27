@@ -1,5 +1,4 @@
 .button:disabled {
-     //border:none;
      background-color:#acacac;
      color:#737373;
      cursor:default;
@@ -40,12 +39,31 @@
 }
 
 .button4choice {
-    width: 340px;
+    width: 330px;
     display: block;
     margin: 10px auto;
     padding: 8px 8px;
     border: none;
-    background: none;
+    background-color: #FFFFFF;
+    //background: none;
+    color: inherit;
+    vertical-align: middle;
+    position: relative;
+    z-index: 1;
+    -webkit-backface-visibility: hidden;
+    -moz-osx-font-smoothing: grayscale;
+    font-size: 1em;
+    text-align: center;
+}
+
+.button-pair {
+    width: 330px;
+    display: block;
+    margin: 20px auto;
+    padding: 16px 8px;
+    border: none;
+    background-color: #FFFFFF;
+    //background: none;
     color: inherit;
     vertical-align: middle;
     position: relative;
@@ -60,10 +78,11 @@
     min-width: 200px;
     max-width: 300px;
     display: block;
-    margin: 10px auto;
-    padding: 8px 8px;
+    margin: 20px auto;
+    padding: 15px 8px;
     border: none;
-    background: none;
+    background-color: #FFFFFF;
+    //background: none;
     color: inherit;
     vertical-align: middle;
     position: relative;
@@ -73,6 +92,26 @@
     font-size: 1em;
     text-align: center;
 }
+
+.button-topic {
+    float: right;
+    min-width: 100px;
+    max-width: 300px;
+    display: block;
+    margin: 0px 10px 5px auto;
+    padding: 15px 8px;
+    border: none;
+    background-color: #FFFFFF;
+    //background: none;
+    color: inherit;
+    vertical-align: middle;
+    position: relative;
+    z-index: 1;
+    -webkit-backface-visibility: hidden;
+    -moz-osx-font-smoothing: grayscale;
+    font-size: 1em;
+    text-align: center;
+ }
 
 
 /* Typography and Roundedness */

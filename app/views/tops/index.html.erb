@@ -1,22 +1,19 @@
-<script>$('div.header-center').html('Home');</script>
+<script>$('div.header-center').html('Mybot');</script>
 
-<% if user_signed_in? %>
-  <% if Bot.exists?(user_id: current_user.id) %>
-    ユーザー名: <%= current_user.nickname %><br>
-    ボット名: <%= current_user.bot.bot_name %><br>
-    バトルポイント: <%= current_user.bot.battle_point %><br>
-    ボットランク: <%= current_user.bot.bot_rank %><br>
-    <span>
-      <a class="button-home button--ujarak button--border-thin button--round-s button--text-medium" href="/trains">学習</a>
-      <a class="button-home button--ujarak button--border-thin button--round-s button--text-medium" href="/evaluates/new">評価する</a>
-      <a class="button-home button--ujarak button--border-thin button--round-s button--text-medium" href="/evaluates">バトル結果</a>
-      <a class="home" href="/tops/ranking"><img src="<%= asset_path "ranking.png" %>" alt="ranking" width="90"/></a>
-    </span>
+<div class="contents">
+  <% if user_signed_in? %>
+    <% if Bot.exists?(user_id: current_user.id) %>
+      <span>
+        <a class="button-home button--ujarak button--border-thin button--round-s button--text-medium" href="/topics">学習</a>
+        <a class="button-home button--ujarak button--border-thin button--round-s button--text-medium" href="/evaluates/new">バトル</a>
+        <a class="button-home button--ujarak button--border-thin button--round-s button--text-medium" href="/evaluates">戦績</a>
+      </span>
+    <% else %>
+      <a class="button-home button--ujarak button--border-thin button--round-s button--text-medium" href="/bots/new">botを作成</a>
+    <% end %>
+    <a class="button-home button--ujarak button--border-thin button--round-s button--text-medium" href="/tops/<%= current_user.id %>">マイページ</a>
+    <a class="ranking" href="/tops/ranking"><img class="ranking" src="<%= asset_path "ranking.png" %>" alt="ranking" width="60"/></a>
   <% else %>
-    <a class="button-home button--ujarak button--border-thin button--round-s button--text-medium" href="/bots/new">botを作成</a>
+    ログインしてください
   <% end %>
-  <a class="button-home button--ujarak button--border-thin button--round-s button--text-medium" href="/tops/<%= current_user.id %>">マイページ</a>
-<% else %>
-  ログインしてください
-<% end %>
-
+</div>

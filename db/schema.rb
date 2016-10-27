@@ -11,14 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161013074015) do
+ActiveRecord::Schema.define(version: 20161025122111) do
 
   create_table "bots", force: :cascade do |t|
     t.integer  "user_id",      limit: 4
-    t.text     "bot_name",     limit: 65535
+    t.string   "bot_name",     limit: 255
     t.integer  "gender",       limit: 4
-    t.integer  "bot_rank",     limit: 4,     default: 0
-    t.integer  "battle_point", limit: 4,     default: 0
+    t.integer  "bot_rank",     limit: 4,   default: 0
+    t.integer  "battle_point", limit: 4,   default: 3
     t.integer  "hair_color",   limit: 4
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -28,13 +28,16 @@ ActiveRecord::Schema.define(version: 20161013074015) do
     t.integer  "evaluator",  limit: 4
     t.integer  "user_x_id",  limit: 4
     t.integer  "user_y_id",  limit: 4
+    t.integer  "topic_id",   limit: 4
     t.integer  "win_flag",   limit: 4, default: 3
+    t.integer  "state_flag", limit: 4, default: 0
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "pairwises", force: :cascade do |t|
     t.integer  "evaluate_id",     limit: 4
+    t.integer  "user_id",         limit: 4
     t.integer  "tweet_id",        limit: 4
     t.integer  "reply_x_id",      limit: 4
     t.integer  "reply_y_id",      limit: 4
@@ -44,35 +47,47 @@ ActiveRecord::Schema.define(version: 20161013074015) do
   end
 
   create_table "sentences", force: :cascade do |t|
-    t.text     "sentence",    limit: 65535
     t.integer  "source_flag", limit: 4
+    t.integer  "topic_id",    limit: 4
+    t.text     "sentence",    limit: 65535
+    t.integer  "bad_q_count", limit: 4,     default: 0
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "topics", force: :cascade do |t|
+    t.string   "topic_name", limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "trains", force: :cascade do |t|
-    t.integer  "user_id",       limit: 4
-    t.integer  "tweet_id",      limit: 4
-    t.integer  "reply_id",      limit: 4
-    t.integer  "adequacy_flag", limit: 4, default: 0
+    t.integer  "user_id",        limit: 4
+    t.integer  "tweet_id",       limit: 4
+    t.integer  "reply_id",       limit: 4
+    t.integer  "topic_id",       limit: 4
+    t.integer  "adequacy_flag",  limit: 4, default: 0
+    t.integer  "choice_count",   limit: 4, default: 0
+    t.integer  "free_b2u_count", limit: 4, default: 0
+    t.integer  "free_u2b_count", limit: 4, default: 0
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "users", force: :cascade do |t|
-    t.string   "email",                  limit: 255,   default: "", null: false
-    t.string   "encrypted_password",     limit: 255,   default: "", null: false
+    t.string   "email",                  limit: 255, default: "", null: false
+    t.string   "encrypted_password",     limit: 255, default: "", null: false
     t.string   "reset_password_token",   limit: 255
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          limit: 4,     default: 0,  null: false
+    t.integer  "sign_in_count",          limit: 4,   default: 0,  null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip",     limit: 255
     t.string   "last_sign_in_ip",        limit: 255
-    t.datetime "created_at",                                        null: false
-    t.datetime "updated_at",                                        null: false
-    t.text     "nickname",               limit: 65535
+    t.datetime "created_at",                                      null: false
+    t.datetime "updated_at",                                      null: false
+    t.string   "nickname",               limit: 255
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

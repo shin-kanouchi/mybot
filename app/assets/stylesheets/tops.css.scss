@@ -1,3 +1,10 @@
+div.contents{
+  padding: 15px 15px;
+  min-height: 616px;
+  background-color: #EEFFFF;
+}
+
+
 table.ranking {
     border-collapse: collapse;
     margin: 30px auto;
@@ -8,4 +15,16 @@ td {
 }
 td.num{
     text-align: right;
+}
+img.ranking{
+    float: right;
+    margin: 10px 20px;
+}
+
+.rank-contents {
+  min-width: 320px;
+  max-width: 380px;
+  margin: auto;
+  padding: 15px 10px;
+  background-color: #FFFFEE;
 }

@@ -1,12 +1,36 @@
-<head>
-</head>
-<body>
-  <h1>Evaluate</h1>
-  これから評価を行います<br>
-  より対話が成立していると思うほうを選択してください<br>
-  バトルポイントが増えます<br>
+<script>$('h2.grid-6').html("<a href='/'>戻る</a>");</script>
+<script>$('div.header-center').html('バトル');</script>
 
-  <div class="contents">
-    <a class="button button--ujarak button--border-thin button--round-s button--text-medium" href="/evaluates/<%= @eval.id %>/pairwises/new">評価開始</a>
-  </div>
-</body>
+<div class="contents">
+  <div class="topic-box"> 
+    <div class="topic-title-button clearfix">
+      <h1 class="topic-title">バトル</h1>
+      <%= form_tag("/evaluates/#{params[:evaluate_id]}", method: "post", name: "battle") do %>
+        <input type="hidden" name="battle" value="0">
+        <div class="battle">
+          <button type='button' class="button-topic button--ujarak button--border-medium button--round-s button--text-thick" name='action' value='send' onclick="double('battle')">開始</button>
+        </div>
+      <% end %>
+    </div>
+    <div class="topic-exp">バトルポイント: <%= current_user.bot.battle_point %> </div>
+    <p>・バトルにより，あなたとライバルのボットのどちらが優れているか勝負します</p>
+    <p>・あなたのボットが学習により応答候補を2つに絞ってくれるので，最後にあなたがより正しい方を選びましょう</p>
+    <p>・バトル結果はリアルタイムにはわかりませんが，のちほど結果が戦績に追加されます</p>
+    <p>・1度バトルをすると，バトルポイントが-1されます</p>
+    <p>・バトルポイントが0の場合，バトルを行うことはできません</p>
+  </div> 
+  <br>
+  <div class="topic-box"> 
+    <div class="topic-title-button clearfix">
+      <h1 class="topic-title">評価</h1>
+      <%= form_tag("/evaluates/#{params[:evaluate_id]}", method: "post", name: "eval") do %>
+      <input type="hidden" name="eval" value="0">
+        <div class="eval">
+          <button type='button' class="button-topic button--ujarak button--border-medium button--round-s button--text-thick" name='action' value='send' onclick="double('eval')">開始</button>
+        </div>
+      <% end %>
+    </div>
+    <p>・評価によって他の2プレイヤーの勝敗を評価します</p>
+    <p>・1度評価をすると，バトルポイントが+2されます</p>
+  </div> 
+</div>

@@ -6,5 +6,6 @@ $("#chat-frame img:last").attr("src","<%= asset_path "icon_woman/woman_understan
 
 $(".contents div").hide();
 $(".contents .new").show();
+$('input[name="old_reply_id"]').val(<%= @reply.id %>);
 
 window.scroll(0,$('#chat-frame').height());

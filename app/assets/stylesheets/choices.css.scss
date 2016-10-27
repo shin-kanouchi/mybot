@@ -1,13 +1,13 @@
 p.question{
-  min-width: 340px;
-  margin: 10px 20px;
+  min-width: 300px;
+  margin: 5px 5px;
   padding: 10px;
   border: medium solid #000770;
   background: #F3FFD8;  
 }
 
 .pt20{
-  padding: 10px 20px 0px 20px;
+  padding: 10px 0px 0px 0px;
 }
 
 .pos-center{
@@ -25,19 +25,21 @@ p.question{
   position: relative;
 }
 .label-checkbox .lever{
+  background: #EEEEEE;
   text-align : center;
-  min-width: 340px;
+  width: 330px;
+  min-height: 40px;
   //max-width: 360px;
   //margin: 5px auto 5px auto;
   display: block;
   color: #000;
   font-weight: normal;
   display: inline-block;
-  padding: 8px 35px;
+  padding: 12px 35px;
   border: 1px solid #e5e5e5;
   //border-radius: 20px;
-  margin-right: 12px;
-  margin-bottom: 10px;
+  //margin-right: 12px;
+  margin-bottom: 20px;
   -webkit-transition: all 300ms cubic-bezier(1, 0, 0, 1);
   -moz-transition: all 300ms cubic-bezier(1, 0, 0, 1);
   -o-transition: all 300ms cubic-bezier(1, 0, 0, 1);
@@ -51,11 +53,12 @@ p.question{
   content:'';
   position: absolute;
   left: 5px;
-  top: -6px;
+  margin-top: -6px;
+  //top: -6px;
   border: 1px solid #e5e5e5;
   background: #fff;
-  width: 26px;
-  height: 26px;
+  width: 20px;
+  height: 20px;
   //border-radius:100%;
   -webkit-transition: all 300ms cubic-bezier(1, 0, 0, 1);
   -moz-transition: all 300ms cubic-bezier(1, 0, 0, 1);
@@ -78,7 +81,7 @@ p.question{
 }
 .label-checkbox input[type="checkbox"]:checked + .lever:before{
    left: 100%;
-   margin-left: -44px;
+   margin-left: -30px;
    border-color: #fff;
 }
 

@@ -1,18 +1,22 @@
+<script>$('h2.grid-6').html("<a href='/'>戻る</a>");</script>
+<script>$('div.header-center').html('戦績');</script>
 
-<body>
-  <table class="ranking">
-      <tr>
-        <td> Rank </td>
-        <td> ボット名 </td>
-        <td> スコア </td>
-      </tr>
-
-    <% @bots.each_with_index do |bot, rank| %>
-      <tr>
-        <td class="num"><%= rank+1 %></td>
-        <td><%= bot.bot_name %></td>
-        <td class="num"><%= bot.bot_rank %></td>
-      </tr>
-    <% end %>
-  </table>
-</body>
+<div class="contents">
+  <div class="rank-contents">
+    <table class="ranking">
+        <tr>
+          <td> Rank </td>
+          <td> ボット名 </td>
+          <td> スコア </td>
+        </tr>
+    
+      <% @bots.each_with_index do |bot, rank| %>
+        <tr>
+          <td class="num"><%= rank+1 %></td>
+          <td><%= bot.bot_name %></td>
+          <td class="num"><%= bot.bot_rank %></td>
+        </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
