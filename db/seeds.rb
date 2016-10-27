@@ -9,7 +9,6 @@ Topic.where(topic_name: "ご飯").first_or_create
 Topic.where(topic_name: "運動").first_or_create
 Topic.where(topic_name: "旅行").first_or_create
 Topic.where(topic_name: "自由").first_or_create
-
 Sentence.where(sentence: "甘いお菓子が好き", source_flag: "3", topic_id: Topic.ids[0]).first_or_create
 Sentence.where(sentence: "お腹がすきました", source_flag: "3", topic_id: Topic.ids[0]).first_or_create
 Sentence.where(sentence: "お寿司が食べたいです", source_flag: "3", topic_id: Topic.ids[0]).first_or_create
@@ -38,6 +37,33 @@ Sentence.where(sentence: "ラーメン屋でチャーハン食べた", source_fl
 Sentence.where(sentence: "ラーメンが命なので", source_flag: "3", topic_id: Topic.ids[0]).first_or_create
 Sentence.where(sentence: "得意な料理は何ですか？", source_flag: "3", topic_id: Topic.ids[0]).first_or_create
 Sentence.where(sentence: "好きな料理は何ですか？", source_flag: "3", topic_id: Topic.ids[0]).first_or_create
+Sentence.where(sentence: "うどんはカラダにいいよね", source_flag: "3", topic_id: Topic.ids[0]).first_or_create
+Sentence.where(sentence: "うどんより蕎麦派", source_flag: "3", topic_id: Topic.ids[0]).first_or_create
+Sentence.where(sentence: "うどん県とは", source_flag: "3", topic_id: Topic.ids[0]).first_or_create
+Sentence.where(sentence: "中華料理は辛い", source_flag: "3", topic_id: Topic.ids[0]).first_or_create
+Sentence.where(sentence: "キュウリって栄養ない...", source_flag: "3", topic_id: Topic.ids[0]).first_or_create
+Sentence.where(sentence: "トマト嫌いな人多いよね", source_flag: "3", topic_id: Topic.ids[0]).first_or_create
+Sentence.where(sentence: "野菜ジュース飲んで野菜食べた気になってるの？", source_flag: "3", topic_id: Topic.ids[0]).first_or_create
+Sentence.where(sentence: "野菜を食べましょう", source_flag: "3", topic_id: Topic.ids[0]).first_or_create
+Sentence.where(sentence: "もやしは一瞬で伸びる", source_flag: "3", topic_id: Topic.ids[0]).first_or_create
+Sentence.where(sentence: "もやしは安い", source_flag: "3", topic_id: Topic.ids[0]).first_or_create
+Sentence.where(sentence: "もやしは栄養ある", source_flag: "3", topic_id: Topic.ids[0]).first_or_create
+Sentence.where(sentence: "桃栗三年", source_flag: "3", topic_id: Topic.ids[0]).first_or_create
+Sentence.where(sentence: "ヨーグルトはお腹に優しい", source_flag: "3", topic_id: Topic.ids[0]).first_or_create
+Sentence.where(sentence: "ヨーグルトはプレーンでしょ", source_flag: "3", topic_id: Topic.ids[0]).first_or_create
+Sentence.where(sentence: "ヨーグルトよりシリアル派", source_flag: "3", topic_id: Topic.ids[0]).first_or_create
+Sentence.where(sentence: "クッキー焼いたよ", source_flag: "3", topic_id: Topic.ids[0]).first_or_create
+Sentence.where(sentence: "カップラーメン作ったことある", source_flag: "3", topic_id: Topic.ids[0]).first_or_create
+Sentence.where(sentence: "牛乳を毎日飲みましょう", source_flag: "3", topic_id: Topic.ids[0]).first_or_create
+Sentence.where(sentence: "ご飯ですよ", source_flag: "3", topic_id: Topic.ids[0]).first_or_create
+Sentence.where(sentence: "お昼ご飯何かな", source_flag: "3", topic_id: Topic.ids[0]).first_or_create
+Sentence.where(sentence: "米炊くなう", source_flag: "3", topic_id: Topic.ids[0]).first_or_create
+Sentence.where(sentence: "ちゃんとご飯食べてね", source_flag: "3", topic_id: Topic.ids[0]).first_or_create
+Sentence.where(sentence: "具とご飯は交互に食べる", source_flag: "3", topic_id: Topic.ids[0]).first_or_create
+Sentence.where(sentence: "ご飯と味噌汁はおかわりできます", source_flag: "3", topic_id: Topic.ids[0]).first_or_create
+Sentence.where(sentence: "ワインはぶどうから作られます", source_flag: "3", topic_id: Topic.ids[0]).first_or_create
+Sentence.where(sentence: "ぶどう狩りしたい", source_flag: "3", topic_id: Topic.ids[0]).first_or_create
+Sentence.where(sentence: "ぶどうの皮は食べる？", source_flag: "3", topic_id: Topic.ids[0]).first_or_create
 Sentence.where(sentence: "好きなスポーツは？", source_flag: "3", topic_id: Topic.ids[1]).first_or_create
 Sentence.where(sentence: "サッカーは好きですか？", source_flag: "3", topic_id: Topic.ids[1]).first_or_create
 Sentence.where(sentence: "野球は好きですか？", source_flag: "3", topic_id: Topic.ids[1]).first_or_create
