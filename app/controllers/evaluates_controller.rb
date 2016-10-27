@@ -49,6 +49,6 @@ class EvaluatesController < ApplicationController
 
   def choose_topic
     #xのレベルor 経験値を調べて，条件を満たしているtopicで戦う
-    return "1"
+    return Topic.first.id
   end
 end
