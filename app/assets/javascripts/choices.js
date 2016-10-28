@@ -1,4 +1,5 @@
-window.addEventListener("load", function() {
+$(document).on('turbolinks:load page:change', function(){
+  //window.addEventListener("load", function() {
   $('.label-checkbox input[type="checkbox"]').change(function(){
     if ($('.label-checkbox input[type="checkbox"]').is(':checked')) {
       $('div.choice button.choice-new').text("選択完了");
