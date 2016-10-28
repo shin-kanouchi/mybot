@@ -1,31 +1,35 @@
 <script>$('div.header-center').html("1 /5");</script>
+<script>$('footer.footer').html("aaaaaaaaaaaa");</script>
 
-<div id="chat-frame">
-    <%= render partial: "sentence_bot", locals: { sentence: @sentence } %>
-</div>
 
 <div class="contents">
-  <div class="edit">
-    <%= form_tag("/topics/#{params[:topic_id]}/trains/", method: 'patch', remote: true) do %>
-      <span class="input input--minoru">
-        <input class="input__field input__field--minoru" type="text" name="tweet" id="input-1" placeholder="編集内容を入力">
-        <label class="input__label input__label--minoru" for="input-1"></label>
-      </span>
-      <button type='submit' class="button button--ujarak button--border-medium button--round-s button--text-thick edit_color" name='action' value='send'>修正</button>
-    <% end %>
+  <div id="chat-frame">
+    <%= render partial: "sentence_bot", locals: { sentence: @sentence } %>
   </div>
-  <div class="new">
-    <%= form_tag("/topics/#{params[:topic_id]}/trains", method: "post", remote: true, name: "new") do %>
-      <input type="hidden" name="train_num" value="1">
-      <input type="hidden" name="old_reply_id" value="<%= @sentence.id %>">
-      <span class="input input--minoru">
-        <input class="input__field input__field--minoru" type="text" name="tweet" id="input-2">
-        <label class="input__label input__label--minoru" for="input-2"></label>
-      </span>
 
-      <input type="text" name="dummy" style="display:none;"> 
-      <button type='button' class="button button--ujarak button--border-medium button--round-s button--text-thick" name='action' value='send' onclick="double('new')">送信</button>
-    <% end %>
+  <div class="contents-button">
+    <div class="edit">
+      <%= form_tag("/topics/#{params[:topic_id]}/trains/", method: 'patch', remote: true) do %>
+        <span class="input input--minoru">
+          <input class="input__field input__field--minoru" type="text" name="tweet" id="input-1" placeholder="編集内容を入力">
+          <label class="input__label input__label--minoru" for="input-1"></label>
+        </span>
+        <button type='submit' class="button button--ujarak button--border-medium button--round-s button--text-thick edit_color" name='action' value='send'>修正</button>
+      <% end %>
+    </div>
+    <div class="new">
+      <%= form_tag("/topics/#{params[:topic_id]}/trains", method: "post", remote: true, name: "new") do %>
+        <input type="hidden" name="train_num" value="1">
+        <input type="hidden" name="old_reply_id" value="<%= @sentence.id %>">
+        <span class="input input--minoru">
+          <input class="input__field input__field--minoru" type="text" name="tweet" id="input-2">
+          <label class="input__label input__label--minoru" for="input-2"></label>
+        </span>
+
+        <input type="text" name="dummy" style="display:none;"> 
+        <button type='button' class="button button--ujarak button--border-medium button--round-s button--text-thick" name='action' value='send' onclick="double('new')">送信</button>
+      <% end %>
+    </div>
   </div>
 </div>
 

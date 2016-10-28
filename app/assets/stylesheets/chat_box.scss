@@ -4,8 +4,7 @@
  ************************************/
 
 #chat-frame {
-  min-width: 320px;
-  //max-width: 600px;
+  min-width: calc(100% - 30px);
   margin: auto;
   padding: 10px 10px;
   background-color: #FFFFEE;
@@ -30,14 +29,14 @@
     box-shadow: 0 0 4px #ddd;
 }
 .chat-area {
-    min-width: 240px;
+    //min-width: 240px;
     //max-width: 500px;
     width: calc(100% - 65px);
     float: left;
     padding: 0px 0px;
 }
 div.chat-hukidashi {
-    max-width: calc(100% - 80px);
+    max-width: calc(100% - 70px);
     float: left;
     //display: inline-block;
     //padding: 20px 0px;
@@ -66,7 +65,7 @@ div.chat-hukidashi {
  
 .chat-hukidashi-right {
     display: inline-block;
-    margin-right: 15px;
+    margin-right: 12px;
     margin-top: 0px;
     border-radius: 7px;
     position: relative;

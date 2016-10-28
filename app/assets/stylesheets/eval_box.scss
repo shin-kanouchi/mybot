@@ -12,7 +12,18 @@
 }*/
 
 .eval-box.win-1{
-    background-color: #CCFF33;
+    background-color: #FFFFEE;
+    border: medium solid #0000FF;
+}
+
+.eval-box.win-2{
+    background-color: #FFFFEE;
+    border: medium solid #DDFFFF;
+}
+
+.eval-box.win-0{
+    background-color: #FFFFEE;
+    border: medium solid #E6FFE9;
 }
 
 /*画像左側のチャット*/
@@ -20,7 +31,6 @@
     width: 100%;
     height: auto;
     overflow: hidden;
-    margin-top: 5px;
 }
 .eval-win-flag {
      float: left;
@@ -29,21 +39,21 @@
 .eval-win-flag img {
      width: 30px;
      height: 30px;
-     margin: 14px 0px;
+     margin: 14px 0px 14px 3px;
  }
 .eval-face {
     float: left;
-    margin: 1px 5px;
+    margin: 5px 5px;
 }
 .eval-face img {
-    width: 60px;
-    height: 60px;
+    width: 50px;
+    height: 50px;
     border-radius: 5px;
     border: 1px solid #ccc;
     box-shadow: 0 0 4px #ddd;
 }
 .eval-hukidashi {
-    width: 170px;
+    width: calc(100% - 170px);
     float: left;
     display: inline-block;
     padding: 2px 5px;

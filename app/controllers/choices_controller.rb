@@ -7,7 +7,7 @@ class ChoicesController < ApplicationController
     @tweet = Sentence.where( "topic_id = ? and bad_q_count = 0", params["topic_id"]).sample
     @train_1 = train_adequacy_minus(docomo_reply(@tweet.sentence, params["topic_id"])) #choose_reply
     @train_2 = train_adequacy_minus(user_local_reply(@tweet.sentence, params["topic_id"]))
-    @train_3 = train_adequacy_minus(user_reply(current_user.id, @tweet.sentence, min_diff_score=200))
+    @train_3 = train_adequacy_minus(user_reply(current_user.id, @tweet.sentence, min_diff_score=200)) #返してないときに何かする
   end
 
   def update

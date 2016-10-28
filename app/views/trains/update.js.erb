@@ -4,8 +4,8 @@ $("#sentence_sentence").val('');
 $(".edit_button #new").css("display", "none");
 $("#chat-frame img:last").attr("src","<%= asset_path "icon_woman/woman_understanding_#{current_user.bot.hair_color}.png" %>");
 
-$(".contents div").hide();
-$(".contents .new").show();
+$(".contents-button div").hide();
+$(".contents-button .new").show();
 $('input[name="old_reply_id"]').val(<%= @reply.id %>);
 
 window.scroll(0,$('#chat-frame').height());

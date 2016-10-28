@@ -1,6 +1,6 @@
 p.question{
-  min-width: 300px;
-  margin: 5px 5px;
+  min-width: 260px;
+  margin: 5px 0px;
   padding: 10px;
   border: medium solid #000770;
   background: #F3FFD8;  
@@ -11,7 +11,6 @@ p.question{
 }
 
 .pos-center{
-  display: table;
   margin: 0px auto;
 }
 
@@ -27,7 +26,8 @@ p.question{
 .label-checkbox .lever{
   background: #EEEEEE;
   text-align : center;
-  width: 330px;
+  width: 100%;
+  //width: 344px;
   min-height: 40px;
   //max-width: 360px;
   //margin: 5px auto 5px auto;
@@ -84,4 +84,3 @@ p.question{
    margin-left: -30px;
    border-color: #fff;
 }
-

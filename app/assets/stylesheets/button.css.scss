@@ -9,10 +9,10 @@
     min-width: 50px;
     max-width: 150px;
     display: block;
-    margin: 8px 10px;
+    margin: 8px 0px 8px 10px;
     padding: 8px 10px;
     border: none;
-    background: none;
+    background-color: #FFF;
     color: inherit;
     vertical-align: middle;
     position: relative;
@@ -39,7 +39,7 @@
 }
 
 .button4choice {
-    width: 330px;
+    width: 100%;
     display: block;
     margin: 10px auto;
     padding: 8px 8px;
@@ -57,7 +57,7 @@
 }
 
 .button-pair {
-    width: 330px;
+    width: 100%;
     display: block;
     margin: 20px auto;
     padding: 16px 8px;

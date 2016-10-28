@@ -12,27 +12,27 @@
       <div class="form-group checkbox-wrap text-center">
         <div class="pos-center">
           <label class="label-checkbox">
-            <input type="checkbox" name="train_id[]" value="<%= @train_1.id %>" />
+            <input class="chkbox" type="checkbox" name="train_id[]" value="<%= @train_1.id %>" />
             <span class="lever"><%= @train_1.reply.sentence %></span>
           </label><br>
         </div>
         <div class="pos-center">
           <label class="label-checkbox">
-            <input type="checkbox" name="train_id[]" value="<%= @train_2.id %>" />
+            <input class="chkbox" type="checkbox" name="train_id[]" value="<%= @train_2.id %>" />
             <span class="lever"><%= @train_2.reply.sentence %></span>
           </label><br>
         </div>
         <div class="pos-center">
           <label class="label-checkbox">
-            <input type="checkbox" name="train_id[]" value="<%= @train_3.id %>"/>
+            <input class="chkbox" type="checkbox" name="train_id[]" value="<%= @train_3.id %>"/>
             <span class="lever"><%= @train_3.reply.sentence %></span>
           </label><br>
         </div>
       </div>
     </div>
 
-    <div class="choice-new">
-      <button type='button' class="button4choice button--ujarak button--border-medium button--round-s button--text-thick edit_color" name='action' value='send' onclick="double('choice-new')">選択完了</button>
+    <div class="choice">
+      <button type='button' class="choice-new button4choice button--ujarak button--border-medium button--round-s button--text-thick edit_color" name='action' value='send' onclick="double('choice-new')">応答が全て良くない</button>
       <button type='button' class="button button--ujarak button--border-medium button--round-s button--text-thick" name='action' value='send' onclick="double_badq(<%=@tweet.id%>)">質問が悪い</button>
     </div>
   <% end %>

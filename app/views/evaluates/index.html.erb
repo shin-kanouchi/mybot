@@ -1,7 +1,6 @@
 <script>$('h2.grid-6').html("<a href='/'>戻る</a>");</script>
 <script>$('div.header-center').html('戦績');</script>
 
-<div class="contents">
   <div class="contents row" id="eval-frame">
     <% @evals.each do |eval| %>
       <% user, enemy, user_win_flag, user_face, enemy_face = eval.win_or_lose(@current_user_id) %>
@@ -13,7 +12,7 @@
           <img alt="Icon" src="<%= asset_path "icon_woman/woman_#{user_face}_#{user.bot.hair_color}.png" %>" width="90" height="90" />
         </div>
         <div class="eval-hukidashi"> 
-          <p class="time"> <%=  eval.updated_at.strftime("%Y年%m月%d日 %H時%M分") %> </p>
+          <p class="time"> <%#  eval.updated_at.strftime("%Y年%m月%d日 %H時%M分") %> </p>
           <p class="top"> <%= user.bot.bot_name %> </p>
           <p class="middle"> vs </p>
           <p class="bottom"> <%= enemy.bot.bot_name %> </p>
@@ -30,4 +29,3 @@
   
     <% end %>
   </div>
-</div>
