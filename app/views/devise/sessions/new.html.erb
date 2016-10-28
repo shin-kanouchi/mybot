@@ -1,26 +1,37 @@
-<div class="contents row">
-  <h2>Log in</h2>
+<script>$('a.button').replaceWith('<div class="header-center">ログイン</div><a class="home" href="/"><img src="<%= asset_path "home.jpeg" %>" alt="home"></a>');</script>
+
+<div class="contents">
   
   <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
     <div class="field">
-      <%= f.label :email %><br />
-      <%= f.email_field :email, autofocus: true %>
-    </div>
+      <%= f.label :メールアドレス %><br />
+      <%# f.email_field :email, autofocus: true %>
+      <span class="input-signup input--minoru">
+        <input type="email" value="" name="user[email]" id="user_email" class="input__field input__field--minoru" autofocus="autofocus">
+        <label class="input__label input__label--minoru" for="user_email"></label>
+      </span> 
+   </div>
   
     <div class="field">
-      <%= f.label :password %><br />
-      <%= f.password_field :password, autocomplete: "off" %>
+      <%= f.label :パスワード %><br />
+      <%# f.password_field :password, autocomplete: "off" %>
+      <span class="input-signup input--minoru">
+        <input autocomplete="off" type="password" name="user[password]" id="user_password" class="input__field input__field--minoru">
+        <label class="input__label input__label--minoru" for="user_password"></label>
+      </span>
+
     </div>
   
     <% if devise_mapping.rememberable? -%>
       <div class="field">
         <%= f.check_box :remember_me %>
-        <%= f.label :remember_me %>
+        <%= f.label :ログイン情報を保存 %>
       </div>
     <% end -%>
   
     <div class="actions">
-      <%= f.submit "Log in" %>
+      <%# f.submit "Log in" %>
+      <input type="submit" name="commit" value="ログイン" class="button4choice button--ujarak button--border-thin button--round-s button--text-medium">
     </div>
   <% end %>
   

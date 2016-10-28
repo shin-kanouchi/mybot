@@ -18,6 +18,8 @@ $('div.header-center').html("<%= @train_num %> /5");
 $('input[name="train_num"]').val(<%= @train_num %>);
 $('input[name="old_reply_id"]').val(<%= @reply.id %>);
 
+$('input#input-2').focus()
+
 //したまでスクロール
 window.scroll(0,$('#chat-frame').height());
 

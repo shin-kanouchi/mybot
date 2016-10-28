@@ -39,12 +39,14 @@ body,html {
   height: 100%;
   background-color: $lightGray;
 }
+
 body {
   padding-top: 51px;
   margin-bottom: 20px;
 }
 
 header.header {
+  padding: 5px 5px 5px 5px;
   border-bottom: 1px solid $gray;
   background-color: #fff;
   position: fixed;
@@ -59,14 +61,14 @@ header.header {
       font-size: 20px;
       line-height: 38px;
       float: left;
-      padding: 8px;
+      padding: 0px 5px;
       //margin-right: 60px;
     }
     img {
       width: 30px;
       height: 30px;
       float: right;
-      margin: 10px 10px 10px -40px;
+      margin: 5px 5px 5px -40px;
     }
   }
 }
@@ -76,11 +78,11 @@ header.header:after {
 
 .header-center{
   position: absolute;
-  width: 70%;
+  width: 75%;
   float: left;
   font-size: 20px;
   text-align: center;
-  margin: 15px 10% 15px 10%;
+  margin: 10px 10% 10px 10%;
 }
 
 footer {

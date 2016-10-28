@@ -10,13 +10,10 @@
 <body>
   <header class="header">
     <div class="header__bar row">
-      <h2 class="grid-6">
-      </h2>
+      <h2 class="grid-6"></h2>
       <% if user_signed_in? %>
         <div class="header-center"></div>
-        <span>
-          <a class="home" href="/"><img src="<%= asset_path "home.jpeg" %>" alt="home"></a>
-        </span>        
+        <span><a class="home" href="/"><img src="<%= asset_path "home.jpeg" %>" alt="home"></a></span>        
       <% else %>
         <a class="button button--ujarak button--border-thin button--round-s button--text-medium" href="/users/sign_in">ログイン</a>
         <a class="button button--ujarak button--border-thin button--round-s button--text-medium" href="/users/sign_up">新規登録</a>
