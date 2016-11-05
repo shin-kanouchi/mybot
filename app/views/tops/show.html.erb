@@ -1,16 +1,54 @@
 <script>$('h2.grid-6').html("<a href='/'>戻る</a>");</script>
 <script>$('div.header-center').html('マイページ');</script>
 
-<div class="contents">
-  ユーザー名: <%= current_user.nickname %><br>
-  
-  <% if Bot.exists?(user_id: current_user.id) %>
-    ボット名: <%= current_user.bot.bot_name %><br>
-    バトルポイント: <%= current_user.bot.battle_point %><br>
-    ボットランク: <%= current_user.bot.bot_rank %><br>
-  <% else %>
-    <a class="button button-home button--wapasha button--text-thick" href="/bots/new">botを作成</a>
-  <% end %>
-  
-  <a class="button button-badq button--wapasha button--text-thick" rel="nofollow" data-method="delete" href="/users/sign_out">ログアウト</a>
+<div class="contents" style="height:100%">
+  <div class="back-iamge">
+    <% if Bot.exists?(user_id: current_user.id) %>
+      <script>$('.back-iamge').css('background-image', 'url(<%= asset_path "mypage_woman/mypage_resize#{current_user.bot.hair_color}.png" %>)');</script>
+      <div class="under-prof">
+
+        <div class="my-prof">
+          <span class="temp">ユーザ名: </span>
+          <span class="name"><%= current_user.nickname %> </span>
+          <br>
+        </div>
+
+        <div class="bot-name">
+          <span class="temp">ボット名: </span>
+          <span class="name"><%= current_user.bot.bot_name %> </span>
+          <br>
+        </div>
+
+        <div class="my-prof">
+          <span class="temp">ランク: </span>
+          <span class="name"><%= current_user.bot.bot_rank %> </span>
+          <br>
+        </div>
+
+        <div class="my-prof">
+          <span class="temp">勝率: </span>
+          <span class="name"><%= current_user.bot.bot_rank %> </span>
+          <br>
+        </div>
+
+
+        <div class="my-prof">
+          <span class="temp">バトルポイント: </span>
+          <span class="name"><%= current_user.bot. battle_point %> </span>
+          <br>
+        </div>
+
+
+        <div class="my-prof">
+          <span class="temp">合計学習量: </span>
+          <span class="name"> <%= Train.where(user_id: current_user.id).count %> 件 </span>
+          <br>
+        </div>
+      </div>
+
+    <% else %>
+      <a class="button button-home button--wapasha button--text-thick" href="/bots/new">botを作成</a>
+    <% end %>
+    <a class="button button-badq button--wapasha button--text-thick" rel="nofollow" data-method="delete" href="/users/sign_out">ログアウト</a>
+  </div>
 </div>

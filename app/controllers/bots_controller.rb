@@ -4,7 +4,7 @@ class BotsController < ApplicationController
   end
 
   def create
-    Bot.create(bot_name: bot_params[:bot_name], hair_color: bot_params[:hair_color], user_id: current_user.id) #: bot_params[:hair_color]
+    Bot.create(bot_name: bot_params[:bot_name], hair_color: bot_params[:hair_color], gender: bot_params[:gender], user_id: current_user.id) #: bot_params[:hair_color]
     Train.create(user_id: current_user.id, tweet_id: 2, reply_id: 2, adequacy_flag: 1) #ここエラーの元になりそう
     redirect_to controller: :tops, action: :index
   end
@@ -27,7 +27,7 @@ class BotsController < ApplicationController
 
   private
   def bot_params
-    params.permit(:bot_name, :hair_color) #:character_flag. :hair_color
+    params.permit(:bot_name, :hair_color, :gender) #:character_flag. :hair_color
   end
 
 end
