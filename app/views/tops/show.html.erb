@@ -1,7 +1,7 @@
 <script>$('h2.grid-6').html("<a href='/'>戻る</a>");</script>
 <script>$('div.header-center').html('マイページ');</script>
 
-<div class="contents" style="height:100%">
+<div class="contents" >
   <% if Bot.exists?(user_id: current_user.id) %>
     <div class="back-iamge">
       <script>$('.back-iamge').css('background-image', 'url(<%= asset_path "mypage_woman/mypage_resize#{current_user.bot.hair_color}.png" %>)');</script>
@@ -44,8 +44,8 @@
           <span class="name"> <%= Train.where(user_id: current_user.id).count %> 件 </span>
           <br>
         </div>
+        <a class="button button-logout button--wapasha button--text-thick" rel="nofollow" data-method="delete" href="/users/sign_out">ログアウト</a>
       </div>
-      <a class="button button-home button--wapasha button--text-thick" rel="nofollow" data-method="delete" href="/users/sign_out">ログアウト</a>
     </div>
   <% else %>
     <script>$('.back-iamge').css('background-image', 'none');</script>
