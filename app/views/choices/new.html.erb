@@ -7,6 +7,9 @@
   </p>
 
   <%= form_tag("/topics/#{params[:topic_id]}/choices/#{params[:id]}", method: :patch, name: "choice-new") do %>
+    <button type='button' class="button button-badq button--wapasha button--border-medium blue" name='action' value='send' onclick="double_badq(<%=@tweet.id%>)">質問が悪い</button>
+    <br><br>
+    <p>応答文を選択</p>
     <input type="text" name="dummy" value="" style="display:none;">
     <div class="container pt20">
       <div class="form-group checkbox-wrap text-center">
@@ -30,10 +33,8 @@
         </div>
       </div>
     </div>
-
     <div class="choice">
-      <button type='button' class="choice-new button4choice button--ujarak button--border-medium button--round-s button--text-thick edit_color" name='action' value='send' onclick="double('choice-new')">応答が全て良くない</button>
-      <button type='button' class="button button--ujarak button--border-medium button--round-s button--text-thick" name='action' value='send' onclick="double_badq(<%=@tweet.id%>)">質問が悪い</button>
+      <button type='button' class="choice-new button button-choice button--wapasha" name='action' value='send' onclick="double('choice-new')">応答が全て良くない</button>
     </div>
   <% end %>
 </div>

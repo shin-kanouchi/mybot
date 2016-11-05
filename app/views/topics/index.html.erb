@@ -5,6 +5,7 @@
   <p>学習テーマを選択してください</p>
 
   <% Topic.all.each do |topic| %>
-    <a class="button-home button--ujarak button--border-thin button--round-s button--text-medium" href="/topics/<%= topic.id %>"><%= topic.topic_name %></a>
+    <a class="button button-home button--wapasha button--text-thick" href="/topics/<%= topic.id %>"><%= topic.topic_name %></a>
+
   <% end %>
 </div>

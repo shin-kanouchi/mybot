@@ -5,9 +5,9 @@
   <div class="topic-box">
     <div class="topic-title-button clearfix">
       <h1 class="topic-title">一問一答</h1>
-      <a class="button-topic button--ujarak button--border-thin button--round-s button--text-medium" href="/topics/<%= @topic.id %>/choices/new/1">開始</a>
+      <a class="button button-topic button--wapasha button--text-thick" href="/topics/<%= @topic.id %>/choices/new/1">開始</a>
     </div>
-    <div class="topic-exp">経験値:   <%= @choice_exp %> /1000 </div>
+    <div class="topic-exp">経験値:   <%= @choice_exp %> /1000  <meter low="200" high="500" max="1000" value="<%= @choice_exp %>" style="float:right"></meter></div>
     <p>・ある発言が来たときに自分のボットがどう答えるべきか選択する</p>
     <p>・選択できる数は0~3個で，選択した応答が正しいだと学習する</p>
     <p>・選択が0個の場合は，全部の選択肢が悪かったことになる</p>
@@ -17,9 +17,9 @@
   <div class="topic-box">
     <div class="topic-title-button clearfix">
       <h1 class="topic-title">自由会話</h1>
-      <a class="button-topic button--ujarak button--border-thin button--round-s button--text-medium" href="/topics/<%= @topic.id %>/trains/new">開始</a>
+      <a class="button button-topic button--wapasha button--text-thick" href="/topics/<%= @topic.id %>/trains/new">開始</a>
     </div>
-    <div class="topic-exp">経験値:   <%= @free_exp %> /1000 </div>
+    <div class="topic-exp">経験値:   <%= @free_exp %> /1000 <meter low="200" high="500" max="1000" value="<%= @free_exp %>" style="float:right"></meter></div>
     <p>・ボットと自由入力で会話をする</p>
     <p>・ボットの応答がおかしいときに「修正」ボタンを押して答えて欲しい文を入力すると，正しい応答を学習する</p>
     <p>・はじめはボットから会話が始まり，5往復したら終わりとなる</p>

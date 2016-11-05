@@ -8,7 +8,7 @@
       <%= form_tag("/evaluates/#{params[:evaluate_id]}", method: "post", name: "battle") do %>
         <input type="hidden" name="battle" value="0">
         <div class="battle">
-          <button type='button' class="button-topic button--ujarak button--border-medium button--round-s button--text-thick" name='action' value='send' onclick="double('battle')">開始</button>
+          <button type='button' class="button button-topic button--wapasha button--text-thick" name='action' value='send' onclick="double('battle')">開始</button>
         </div>
       <% end %>
     </div>
@@ -26,7 +26,7 @@
       <%= form_tag("/evaluates/#{params[:evaluate_id]}", method: "post", name: "eval") do %>
       <input type="hidden" name="eval" value="0">
         <div class="eval">
-          <button type='button' class="button-topic button--ujarak button--border-medium button--round-s button--text-thick" name='action' value='send' onclick="double('eval')">開始</button>
+          <button type='button' class="button button-topic button--wapasha button--text-thick" name='action' value='send' onclick="double('eval')">開始</button>
         </div>
       <% end %>
     </div>

@@ -8,10 +8,12 @@
 
   <%= form_tag("/evaluates/#{@eval.id}/pairwises/#{@train_num}", method: :patch, name: "eval-new") do %>
     <input type="hidden" name="inequality_flag" value="0">
-    <button type='button' class="button-pair button--ujarak button--border-medium button--round-s button--text-thick" onclick="pair_double('1')"><%= @pairwise.reply_x.sentence %></button>
-    <button type='button' class="button-pair button--ujarak button--border-medium button--round-s button--text-thick" onclick="pair_double('2')"><%= @pairwise.reply_y.sentence %></button>
+
+    <button type='button' class="button button-pair button--wapasha button--text-thick" onclick="pair_double('1')"><%= @pairwise.reply_x.sentence %></button>
+    <button type='button' class="button button-pair button--wapasha button--text-thick" onclick="pair_double('2')"><%= @pairwise.reply_y.sentence %></button>
+
     <% if current_user.id = @eval.evaluator%>
-      <button type='button' class="button-pair button--ujarak button--border-medium button--round-s button--text-thick edit_color" onclick="pair_double('0')">どちらも同じレベル</button>
+      <button type='button' class="button button-pair button--wapasha button--text-thick blue" onclick="pair_double('0')">どちらも同じレベル</button>
     <% end %>
   <% end %>
 </div>
