@@ -62,13 +62,20 @@ class ApplicationController < ActionController::Base
 
   def docomo_reply(sentence, topic_id)
     client = Docomoru::Client.new(api_key: '6c61546d47537763524d6e577a68716b4e70586e49465542326a45432e6c762e41347359366d79756a492f')
+    i = 0
     while true
-      reply = client.create_dialogue(sentence)
-      if reply.body != nil and reply.body["utt"] != nil and reply.body["utt"].length < 30
+      d_reply = client.create_dialogue(sentence)
+      if d_reply.body != nil and d_reply.body["utt"] != nil and d_reply.body["utt"].length < 30
+        reply = Sentence.where(sentence: d_reply.body["utt"], source_flag: 1, topic_id: topic_id).first_or_create
         break
       end
+      if i > 10
+        reply = Sentence.all.sample
+        break
+      end
+      i += 1
     end
-    Sentence.where(sentence: reply.body["utt"], source_flag: 1, topic_id: topic_id).first_or_create
+    return reply
   end
 
   def user_local_reply(sentence, topic_id)
