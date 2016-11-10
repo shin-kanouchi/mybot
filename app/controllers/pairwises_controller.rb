@@ -15,18 +15,17 @@ class PairwisesController < ApplicationController
     @eval = Evaluate.find(params["evaluate_id"])
     @train_num = params["id"].to_i
 
-    if current_user.id == @eval.user_x_id
-      @tweet = Sentence.where( "topic_id = ?", @eval.topic_id).sample #ここの選び方考える
+    if current_user.id != @eval.evaluator
+      @tweet = Train.where("user_id = ? and topic_id = ?", User.first.id, @eval.topic_id).sample.tweet
       @reply_x, @reply_y = choose_2reply(current_user.id, @tweet.sentence, @eval.topic_id)
-    elsif current_user.id == @eval.user_y_id
-      @tweet = Pairwise.where( "evaluate_id = ? and user_id = ?", @eval.id, @eval.user_x_id).order('created_at ASC')[@train_num-1].tweet
-      @reply_x, @reply_y = choose_2reply(current_user.id, @tweet.sentence, @eval.topic_id)
+      @reply_enemy = user_train(current_user.id, @tweet.sentence, min_diff_score=200).reply
+
     else
       pairwise_x = Pairwise.where( "evaluate_id = ? and user_id = ?", @eval.id, @eval.user_x_id).order('created_at ASC')[@train_num-1]
-      pairwise_y = Pairwise.where( "evaluate_id = ? and user_id = ?", @eval.id, @eval.user_y_id).order('created_at ASC')[@train_num-1]
+      binding.pry
       @tweet = pairwise_x.tweet
       @reply_x = better_reply(pairwise_x)
-      @reply_y = better_reply(pairwise_y)
+      @reply_y = user_train(current_user.id, @tweet.sentence, min_diff_score=200).reply
     end
     @pairwise = Pairwise.create(evaluate_id: @eval.id, user_id: current_user.id, tweet_id: @tweet.id, reply_x_id: @reply_x.id, reply_y_id: @reply_y.id)
   end
@@ -41,16 +40,14 @@ class PairwisesController < ApplicationController
       redirect_to controller: :pairwises, action: :new, id: @train_num + 1
     else
       @eval = Evaluate.find(params["evaluate_id"])
-      if current_user.id == @eval.user_x_id
+      if current_user.id != @eval.evaluator
         num_error_first if @eval.pairwises.count != 10
-        bp_operation(-1)
-      elsif current_user.id == @eval.user_y_id
-        num_error if Pairwise.where(evaluate_id: @eval.id, user_id: current_user.id).count != 10
-        bp_operation(-1)
+        bp_operation(-1, current_user.id)
+        bp_operation(-1, @eval.user_y)
       else
         num_error if Pairwise.where(evaluate_id: @eval.id, user_id: current_user.id).count != 10
         @eval.win_flag = calc_win_flag
-        bp_operation(2)
+        bp_operation(2, current_user.id)
         calc_rank
       end
       @eval.state_flag += 1
@@ -59,33 +56,6 @@ class PairwisesController < ApplicationController
     end
   end
 
-  #def update #evaluates/:evaluate_id/pairwises/:id
-  #  pairwise = Pairwise.find(params["id"])
-  #  pairwise.inequality_flag = params["inequality_flag"]
-  #  pairwise.save
-  #  
-  #  #10問解いたら終わる
-  #  @eval = Evaluate.find(params["evaluate_id"])
-  #  if @eval.pairwises.count < 10
-  #    redirect_to controller: :pairwises, action: :new
-  #  else
-  #    #勝敗計算
-  #    @eval.win_flag = calc_win_flag
-  #    @eval.save
-
-  #    #評価者のバトルポイントプラス
-  #    bp_operation(Bot.where('user_id = ?', current_user.id).first, 2)
-
-  #    #被評価者のバトルポイントマイナス
-  #    bp_operation(Bot.where('user_id = ?', @eval.user_x.id).first, -1)
-  #    bp_operation(Bot.where('user_id = ?', @eval.user_y.id).first, -1)
-
-  #    #rankの操作
-  #    calc_rank
-
-  #    redirect_to controller: :pairwises, action: :index
-  #  end
-  #end
 
   def num_error_first
     Pairwise.destroy_all(["evaluate_id = ?", @eval.id])
@@ -108,8 +78,8 @@ class PairwisesController < ApplicationController
   end
 
 
-  def bp_operation(plus_minus)
-    bot = Bot.where('user_id = ?', current_user.id).first
+  def bp_operation(plus_minus, user_id)
+    bot = Bot.where('user_id = ?', user_id).first
     bot.battle_point = [bot.battle_point + plus_minus, 0].max
     bot.save
   end

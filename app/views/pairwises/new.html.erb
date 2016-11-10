@@ -14,6 +14,9 @@
 
     <% if current_user.id = @eval.evaluator%>
       <button type='button' class="button button-pair button--wapasha button--text-thick blue" onclick="pair_double('0')">どちらも同じレベル</button>
+    <% else %>
+      <p>対戦相手の応答:</p>
+      <%= @reply_enemy.sentence %>
     <% end %>
   <% end %>
 </div>

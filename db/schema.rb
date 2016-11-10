@@ -66,7 +66,7 @@ ActiveRecord::Schema.define(version: 20161025122111) do
     t.integer  "tweet_id",       limit: 4
     t.integer  "reply_id",       limit: 4
     t.integer  "topic_id",       limit: 4
-    t.integer  "adequacy_flag",  limit: 4, default: 0
+    t.integer  "adequacy_flag",  limit: 4, default: 10
     t.integer  "choice_count",   limit: 4, default: 0
     t.integer  "free_b2u_count", limit: 4, default: 0
     t.integer  "free_u2b_count", limit: 4, default: 0

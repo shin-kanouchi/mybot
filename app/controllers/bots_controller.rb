@@ -5,7 +5,8 @@ class BotsController < ApplicationController
 
   def create
     Bot.create(bot_name: bot_params[:bot_name], hair_color: bot_params[:hair_color], gender: bot_params[:gender], user_id: current_user.id) #: bot_params[:hair_color]
-    Train.create(user_id: current_user.id, tweet_id: 2, reply_id: 2, adequacy_flag: 1) #ここエラーの元になりそう
+    Train.create(user_id: current_user.id, tweet_id: Sentence.first.id, reply_id: Sentence.first.id, adequacy_flag: 1) #ここエラーの元になりそう
+    Train.create(user_id: current_user.id, tweet_id: Sentence.second.id, reply_id: Sentence.first.id, adequacy_flag: 1)
     redirect_to controller: :tops, action: :index
   end
 

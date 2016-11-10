@@ -1,13 +1,14 @@
 class TrainsController < ApplicationController
 
   def new
-    @sentence = Sentence.where( "topic_id = ? and bad_q_count = 0", params["topic_id"]).sample  #.where( 'id >= ?', rand(Sentence.last.id)).first
+    @sentence = Train.where("user_id = ? and topic_id = ?", User.first.id, params["topic_id"]).order("choice_count ASC").limit(5).sample.tweet
   end
 
   def create
     @tweet = Sentence.where(sentence: params["tweet"], source_flag: 0, topic_id: params["topic_id"]).first_or_create
     save_b2u
-    @reply = choose_reply(current_user.id, @tweet.sentence, params["topic_id"])
+    @reply = user_train(current_user.id, @tweet.sentence).reply  #choose_reply(current_user.id, @tweet.sentence, params["topic_id"])
+    
     @train_num = params["train_num"].to_i
     train_adequacy_plus(1)
     if @train_num < 5

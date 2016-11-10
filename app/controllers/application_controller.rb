@@ -14,7 +14,7 @@ class ApplicationController < ActionController::Base
   end
 
   def choose_reply(user_id, sentence, topic_id)
-    reply = user_reply(user_id, sentence)
+    reply = user_train(user_id, sentence).reply
     if reply.blank?
       reply = docomo_reply(sentence, topic_id)
     end
@@ -22,25 +22,24 @@ class ApplicationController < ActionController::Base
   end
 
   def choose_2reply(user_id, sentence, topic_id)
-    reply_list = user_n_reply(user_id, sentence)
-    return reply_list[0][0], reply_list[1][0]
+    train_list = user_n_reply(user_id, sentence)
+    return train_list[0][0].reply, train_list[1][0].reply
   end
 
-  def user_reply(user_id, sentence, min_diff_score=30)
-    reply = nil
-    Train.where(user_id: user_id, adequacy_flag: 1..10).each do |train|
+  def user_train(user_id, sentence, min_diff_score=200)
+    best_train = nil
+    Train.where(user_id: user_id, adequacy_flag: 0..50).each do |train|
       lev = Levenshtein.distance(sentence, train.tweet.sentence)
       diff_score = 100 * lev / (train.tweet.sentence.length + 1)
       if diff_score < min_diff_score
-        reply = train.reply
+        best_train = train
         min_diff_score = diff_score
       end
     end
-    return reply
+    return best_train
   end
 
   def user_n_reply(user_id, sentence, n=2)
-    reply = nil
     nbest = []
     for num in 1..n do
       nbest.push(["", 200-num])
@@ -51,7 +50,7 @@ class ApplicationController < ActionController::Base
       diff_score = 100 * lev / (train.tweet.sentence.length + 1)
       nbest.each_with_index do |one_best, i|
         if diff_score < one_best[1]
-          nbest.insert(i, [train.reply, diff_score])
+          nbest.insert(i, [train, diff_score])
           nbest.pop()
           break
         end

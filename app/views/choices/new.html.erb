@@ -13,24 +13,14 @@
     <input type="text" name="dummy" value="" style="display:none;">
     <div class="container pt20">
       <div class="form-group checkbox-wrap text-center">
-        <div class="pos-center">
-          <label class="label-checkbox">
-            <input class="chkbox" type="checkbox" name="train_id[]" value="<%= @train_1.id %>" />
-            <span class="lever"><%= @train_1.reply.sentence %></span>
-          </label><br>
-        </div>
-        <div class="pos-center">
-          <label class="label-checkbox">
-            <input class="chkbox" type="checkbox" name="train_id[]" value="<%= @train_2.id %>" />
-            <span class="lever"><%= @train_2.reply.sentence %></span>
-          </label><br>
-        </div>
-        <div class="pos-center">
-          <label class="label-checkbox">
-            <input class="chkbox" type="checkbox" name="train_id[]" value="<%= @train_3.id %>"/>
-            <span class="lever"><%= @train_3.reply.sentence %></span>
-          </label><br>
-        </div>
+        <% @trains.each do |train| %>
+          <div class="pos-center">
+            <label class="label-checkbox">
+              <input class="chkbox" type="checkbox" name="train_id[]" value="<%= train.id %>" />
+              <span class="lever"><%= train.reply.sentence %></span>
+            </label><br>
+          </div>
+        <% end %>
       </div>
     </div>
     <div class="choice">

@@ -20,20 +20,15 @@ class EvaluatesController < ApplicationController
 
   def create
     if params["battle"]
-      @eval = Evaluate.where( 'state_flag = ? and user_x_id != ?', 1, current_user.id).sample  #自分にと戦える勝負待ちのevalを探す 経験値の条件を追加する    
-      if @eval == nil #勝負待ちのEvaluateがなかったら
-        topic_id = choose_topic
-        @eval = Evaluate.create(user_x_id: current_user.id, topic_id: topic_id)
-      else
-        @eval.user_y_id = current_user.id
-        @eval.save
-      end
+      topic_id = choose_topic
+      bot_y = Bot.where('user_id != ?', current_user.id).order("battle_point DESC").limit(5).sample
+      @eval = Evaluate.create(user_x_id: current_user.id, user_y_id: bot_y.user_id, topic_id: topic_id)
     else
-      @eval = Evaluate.where( 'state_flag = ? and user_x_id != ? and user_y_id != ?', 2, current_user.id, current_user.id).sample
+      @eval = Evaluate.where( 'state_flag = ? and user_x_id != ? and user_y_id != ?', 1, current_user.id, current_user.id).sample
       if @eval == nil
-        old_eval = Evaluate.where( 'state_flag = ? and user_x_id != ? and user_y_id != ? and evaluator != ?', 3, current_user.id, current_user.id, current_user.id).sample
+        old_eval = Evaluate.where( 'state_flag = ? and user_x_id != ? and user_y_id != ? and evaluator != ?', 2, current_user.id, current_user.id, current_user.id).sample
         return redirect_to root_path if old_eval == nil #評価できるデータが一つもないときの処理 エラーを出す
-        @eval = Evaluate.create(user_x_id: old_eval.user_x_id, user_y_id: old_eval.user_y_id, topic_id: old_eval.topic_id, state_flag: 2)
+        @eval = Evaluate.create(user_x_id: old_eval.user_x_id, user_y_id: old_eval.user_y_id, topic_id: old_eval.topic_id, state_flag: 1)
       end
       @eval.evaluator = current_user.id
       @eval.save
