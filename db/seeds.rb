@@ -5,7 +5,7 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-Topic.where(topic_name: "ご飯").first_or_create
+Topic.where(topic_name: "グルメ").first_or_create
 Topic.where(topic_name: "運動").first_or_create
 Topic.where(topic_name: "旅行").first_or_create
 Topic.where(topic_name: "自由").first_or_create

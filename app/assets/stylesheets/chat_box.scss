@@ -46,6 +46,7 @@ div.chat-hukidashi {
     position: relative;
     background-color: #D9F0FF;
 }
+
 .chat-hukidashi p {
     margin: 8px 5px 8px 5px;
 }
@@ -100,4 +101,33 @@ div.chat-hukidashi {
 
 .edit_color{
    background-color : #FFDBC9;
+}
+
+
+
+div.chat-hukidashi-choice {
+    max-width: 100%;
+    float: left;
+    margin-left: 15px;
+    margin-top: 8px;
+    border-radius: 7px;
+    position: relative;
+    background-color: #EEEEEE;
+}
+
+.chat-hukidashi-choice p {
+    margin: 8px 5px 8px 5px;
+}
+.chat-hukidashi-choice:after {
+    content: "";
+    position: absolute;
+    top: 4px;
+    left: -8px;
+    //margin-top: -10px;
+    display: block;
+    width: 0px;
+    height: 0px;
+    border-style: solid;
+    border-width: 10px 10px 10px 0;
+    border-color: transparent #EEEEEE transparent transparent;
 }

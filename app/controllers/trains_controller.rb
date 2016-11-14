@@ -1,21 +1,14 @@
 class TrainsController < ApplicationController
 
   def new
-    @sentence = Train.where("user_id = ? and topic_id = ?", User.first.id, params["topic_id"]).order("choice_count ASC").limit(5).sample.tweet
+    @sentence = Train.where("user_id = ?", User.first.id).sample.tweet
   end
 
   def create
-    @tweet = Sentence.where(sentence: params["tweet"], source_flag: 0, topic_id: params["topic_id"]).first_or_create
+    @tweet = Sentence.where(sentence: params["tweet"], source_flag: 0).first_or_create
     save_b2u
-    @reply = user_train(current_user.id, @tweet.sentence).reply  #choose_reply(current_user.id, @tweet.sentence, params["topic_id"])
-    
-    @train_num = params["train_num"].to_i
+    @reply = user_train(current_user.id, @tweet.sentence).reply
     train_adequacy_plus(1)
-    if @train_num < 5
-      @train_num += 1
-    else
-      redirect_to controller: :topics, action: 'show', id: params["topic_id"]
-    end
   end
 
   def update
@@ -26,7 +19,7 @@ class TrainsController < ApplicationController
 
     #修正後の応答に加点
     @tweet = train.tweet
-    @reply = Sentence.where(sentence: params["tweet"], source_flag: 0, topic_id: params["topic_id"]).first_or_create
+    @reply = Sentence.where(sentence: params["tweet"], source_flag: 0).first_or_create
     train_adequacy_plus(3)
 
   end
@@ -37,14 +30,14 @@ class TrainsController < ApplicationController
   #end
 
   def train_adequacy_plus(score)
-      @train = Train.where(user_id: current_user.id, tweet_id: @tweet.id, reply_id: @reply.id, topic_id: params["topic_id"]).first_or_initialize
+      @train = Train.where(user_id: current_user.id, tweet_id: @tweet.id, reply_id: @reply.id).first_or_initialize
       @train.free_u2b_count += 1
       @train.adequacy_flag = [@train.adequacy_flag + score, 10].min
       @train.save
   end
 
   def save_b2u
-    train_b2u = Train.where(user_id: current_user.id, tweet_id: params["old_reply_id"], reply_id: @tweet.id, topic_id: params["topic_id"]).first_or_initialize
+    train_b2u = Train.where(user_id: current_user.id, tweet_id: params["old_reply_id"], reply_id: @tweet.id).first_or_initialize
     train_b2u.free_b2u_count += 1
     train_b2u.adequacy_flag += 3
     train_b2u.save

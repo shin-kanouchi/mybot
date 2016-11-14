@@ -1,4 +1,4 @@
-<script>$('div.header-center').html("1 /5");</script>
+<script>$('div.header-center').html("<%= current_user.bot.bot_name%>");</script>
 
 
 <div class="contents">
@@ -8,7 +8,7 @@
 
   <div class="contents-button">
     <div class="edit">
-      <%= form_tag("/topics/#{params[:topic_id]}/trains/", method: 'patch', remote: true) do %>
+      <%= form_tag("/trains/", method: 'patch', remote: true) do %>
         <span class="input input--minoru">
           <input class="input__field input__field--minoru" type="text" name="tweet" id="input-1" placeholder="編集内容を入力">
           <label class="input__label input__label--minoru" for="input-1"></label>
@@ -17,7 +17,7 @@
       <% end %>
     </div>
     <div class="new">
-      <%= form_tag("/topics/#{params[:topic_id]}/trains", method: "post", remote: true, name: "new") do %>
+      <%= form_tag("/trains/", method: "post", remote: true, name: "new") do %>
         <input type="hidden" name="train_num" value="1">
         <input type="hidden" name="old_reply_id" value="<%= @sentence.id %>">
         <span class="input input--minoru">

@@ -4,7 +4,7 @@
 <div class="contents" >
   <% if Bot.exists?(user_id: current_user.id) %>
     <div class="back-iamge">
-      <script>$('.back-iamge').css('background-image', 'url(<%= asset_path "mypage_woman/mypage_resize#{current_user.bot.hair_color}.png" %>)');</script>
+      <script>$('.back-iamge').css('background-image', 'url(<%= asset_path "mypage/mypage_resize#{current_user.bot.gender}-#{current_user.bot.hair_color}.png" %>)');</script>
       <div class="under-prof">
 
         <div class="my-prof">

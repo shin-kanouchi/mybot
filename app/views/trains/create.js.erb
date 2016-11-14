@@ -12,9 +12,9 @@ $(".edit_button #edit").css("display", "block");
 $("input[type='text']").val("");
 
 //修正時のupdateのurlを更新
-$('.contents-button .edit form').attr('action', "/topics/<%=params[:topic_id]%>/trains/<%= @train.id %>");
+$('.contents-button .edit form').attr('action', "/trains/<%= @train.id %>");
 
-$('div.header-center').html("<%= @train_num %> /5");
+//$('div.header-center').html("<%= @train_num %> /5");
 $('input[name="train_num"]').val(<%= @train_num %>);
 $('input[name="old_reply_id"]').val(<%= @reply.id %>);
 
@@ -35,11 +35,11 @@ $(".edit_button button").on("click", function() {
   $(".contents-button div").hide();
   $(".contents-button ."+this.id).show();
   if (this.id == "edit"){
-    $("#chat-frame img:last").attr("src","<%= asset_path "icon_woman/woman_thinking_#{current_user.bot.hair_color}.png" %>" );
+    $("#chat-frame img:last").attr("src","<%= asset_path "icon/thinking_#{current_user.bot.gender}-#{current_user.bot.hair_color}.png" %>" );
     $("#chat-frame .chat-hukidashi:last").css("text-decoration", "line-through"); //text-decoration: line-through; span:last-child
     $(".edit_button #new").show();
   }else{
-    $("#chat-frame img:last").attr("src","<%= asset_path "icon_woman/woman_normal_#{current_user.bot.hair_color}.png" %>");
+    $("#chat-frame img:last").attr("src","<%= asset_path "icon/normal_#{current_user.bot.gender}-#{current_user.bot.hair_color}.png" %>");
     $("#chat-frame .chat-hukidashi:last").css("text-decoration", "none");
     $(".edit_button #edit").show();
   }

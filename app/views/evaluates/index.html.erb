@@ -9,7 +9,7 @@
           <img alt="Icon" src="<%= asset_path "win_lose_image/result_#{user_win_flag}.png" %>" width="90" height="90" />
         </div>
         <div class="eval-face">
-          <img alt="Icon" src="<%= asset_path "icon_woman/woman_#{user_face}_#{user.bot.hair_color}.png" %>" width="90" height="90" />
+          <img alt="Icon" src="<%= asset_path "icon/#{user_face}_#{user.bot.gender}-#{user.bot.hair_color}.png" %>" width="90" height="90" />
         </div>
         <div class="eval-hukidashi"> 
           <p class="time"> <%#  eval.updated_at.strftime("%Y年%m月%d日 %H時%M分") %> </p>
@@ -18,7 +18,7 @@
           <p class="bottom"> <%= enemy.bot.bot_name %> </p>
         </div>
         <div class="eval-face">
-          <img alt="Icon" src="<%= asset_path "icon_woman/woman_#{enemy_face}_#{enemy.bot.hair_color}.png" %>" width="90" height="90" />
+          <img alt="Icon" src="<%= asset_path "icon/#{enemy_face}_#{enemy.bot.gender}-#{enemy.bot.hair_color}.png" %>" width="90" height="90" />
         </div>
   
           <div class="edit_button">

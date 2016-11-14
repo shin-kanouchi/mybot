@@ -1,15 +1,20 @@
 <script>$('div.header-center').html("<%= params[:id] %> /10");</script>
 
 <div class="contents">
-  <p>質問文</p>
-  <p class="question">
-    <%= @tweet.sentence %>
-  </p>
+  <div class="chat-box">
+    <div class="chat-face">
+      <img alt="Icon" src="<%= asset_path "icon/#{["normal","understanding","thinking"].sample}_#{[0,2,1][current_user.bot.gender]}-#{[1,2,3,4].sample}.png" %>" width="90" height="90" />
+    </div>
+    <div class="chat-area">
+      <div class="chat-hukidashi-choice">
+        <p><%= @tweet.sentence %></p>
+      </div>
+    </div>
+  </div>
+
 
   <%= form_tag("/topics/#{params[:topic_id]}/choices/#{params[:id]}", method: :patch, name: "choice-new") do %>
-    <button type='button' class="button button-badq button--wapasha button--border-medium blue" name='action' value='send' onclick="double_badq(<%=@tweet.id%>)">質問が悪い</button>
-    <br><br>
-    <p>応答文を選択</p>
+    <br>
     <input type="text" name="dummy" value="" style="display:none;">
     <div class="container pt20">
       <div class="form-group checkbox-wrap text-center">
@@ -23,8 +28,13 @@
         <% end %>
       </div>
     </div>
+    <div class="chat-face-choice">
+      <img class="my-icon" alt="Icon" src="<%= asset_path "icon/normal_#{current_user.bot.gender}-#{current_user.bot.hair_color}.png" %>" width="90" height="90" />
+    </div>
     <div class="choice">
       <button type='button' class="choice-new button button-choice button--wapasha" name='action' value='send' onclick="double('choice-new')">応答が全て良くない</button>
     </div>
+    <button type='button' class="button button-badq button--wapasha button--border-medium blue" name='action' value='send' onclick="double_badq(<%= @tweet.id %>)">質問が悪い</button>
+
   <% end %>
 </div>

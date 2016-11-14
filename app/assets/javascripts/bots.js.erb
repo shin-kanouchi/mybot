@@ -1,22 +1,27 @@
-function radio_serect1(){
-    $(".bot-new img").attr("src","<%= asset_path "icon_woman/woman_normal_1.png" %>" );
+function radio_serect(){
+    g = $("[name=gender]:checked").val()
+    h = $("[name=hair_color]:checked").val()
+
+    if (g == 1){
+      if (h == 1){
+        $(".bot-new img").attr("src","<%= asset_path "icon/normal_1-1.png" %>" );
+      } else if (h ==2){
+        $(".bot-new img").attr("src","<%= asset_path "icon/normal_1-2.png" %>" );
+      } else if (h ==3){
+        $(".bot-new img").attr("src","<%= asset_path "icon/normal_1-3.png" %>" );
+      } else {
+        $(".bot-new img").attr("src","<%= asset_path "icon/normal_1-4.png" %>" );
+      }
+    } else {
+      if (h == 1){
+        $(".bot-new img").attr("src","<%= asset_path "icon/normal_2-1.png" %>" );
+      } else if (h == 2){
+        $(".bot-new img").attr("src","<%= asset_path "icon/normal_2-2.png" %>" );
+      } else if (h == 3){
+        $(".bot-new img").attr("src","<%= asset_path "icon/normal_2-3.png" %>" );
+      } else{
+        $(".bot-new img").attr("src","<%= asset_path "icon/normal_2-4.png" %>" );
+      }
+    }
 }
-
-function radio_serect2(){
-    $(".bot-new img").attr("src","<%= asset_path "icon_woman/woman_normal_2.png" %>" );
-}
-
-function radio_serect3(){
-    $(".bot-new img").attr("src","<%= asset_path "icon_woman/woman_normal_3.png" %>" );
-}
-
-function radio_serect4(){
-    $(".bot-new img").attr("src","<%= asset_path "icon_woman/woman_normal_4.png" %>" );
-}
-
-
-/*function radio_serect(btn){
-    //$(".bot-new img").attr("src", image-url("icon_woman/woman_normal_2.png"));
-    $(".bot-new img").attr("src","<%# asset_path "icon_woman/woman_normal_1.png" %>" );
-}*/
 

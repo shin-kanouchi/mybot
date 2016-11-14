@@ -36,11 +36,9 @@ class EvaluatesController < ApplicationController
     redirect_to controller: :pairwises, action: :new, id: 1, evaluate_id: @eval.id
   end
 
-
   def show
     #@evals = Evaluate.where('user_x_id = ? or user_y_id = ?', current_user.id, current_user.id).order("updated_at DESC")
   end
-
 
   def choose_topic
     #xのレベルor 経験値を調べて，条件を満たしているtopicで戦う

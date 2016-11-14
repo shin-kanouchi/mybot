@@ -1,10 +1,14 @@
 $(document).on('turbolinks:load page:change', function(){
   //window.addEventListener("load", function() {
   $('.label-checkbox input[type="checkbox"]').change(function(){
+    old_src = $('img.my-icon').attr('src');
+    old_src_spl = old_src.split("_");
     if ($('.label-checkbox input[type="checkbox"]').is(':checked')) {
       $('div.choice button.choice-new').text("選択完了");
+      $('img.my-icon').attr("src","/assets/icon/understanding_"+old_src_spl[1]);
     } else {
       $('div.choice button.choice-new').text("応答が全て良くない");
+      $('img.my-icon').attr("src","/assets/icon/thinking_"+old_src_spl[1]);
     }
   });
 });

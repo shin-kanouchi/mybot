@@ -12,21 +12,21 @@
       </div>
 
       <label for="product">性別：</label>
-      <input type="radio" value="1" name="gender" id="product_1" checked="true"> <label for="product_1">女性</label>
-      <input type="radio" value="2" name="gender" id="product_2"> <label for="product_2">男性</label>
+      <input type="radio" value="1" name="gender" id="product_1" onclick="radio_serect()" checked="true"> <label for="product_1">女性</label>
+      <input type="radio" value="2" name="gender" id="product_2" onclick="radio_serect()"> <label for="product_2">男性</label>
       <br>
       <br>
       <label for="product2">髪色：</label>
-      <input type="radio" value="1" name="hair_color" id="product2_1" onclick="radio_serect1()" checked="true"> <label for="product2_1">黒</label>
-      <input type="radio" value="2" name="hair_color" id="product2_2" onclick="radio_serect2()"> <label for="product2_2">茶</label>
-      <input type="radio" value="3" name="hair_color" id="product2_3" onclick="radio_serect3()"> <label for="product3_3">金</label>
-      <input type="radio" value="4" name="hair_color" id="product2_4" onclick="radio_serect4()"> <label for="product4_4">桃</label>
+      <input type="radio" value="1" name="hair_color" id="product2_1" onclick="radio_serect()" checked="true"> <label for="product2_1">1</label>
+      <input type="radio" value="2" name="hair_color" id="product2_2" onclick="radio_serect()"> <label for="product2_2">2</label>
+      <input type="radio" value="3" name="hair_color" id="product2_3" onclick="radio_serect()"> <label for="product3_3">3</label>
+      <input type="radio" value="4" name="hair_color" id="product2_4" onclick="radio_serect()"> <label for="product4_4">4</label>
       <br>
       <div class="bot-new">
-        <img alt="Icon" src="<%= asset_path "icon_woman/woman_normal_1.png" %>" width="200" height="200" style="border: 5px solid #888"/>
+        <img alt="Icon" src="<%= asset_path "icon/normal_1-1.png" %>" width="200" height="200" style="border: 5px solid #888"/>
       </div>
       <div class="actions">
-        <input type="submit" name="commit" value="登録" class="button button-choice button--wapasha button--text-thick">
+        <input type="submit" name="commit" value="登録" class="button button-enter button--wapasha button--text-thick">
       </div>
     <% end %>
   </div>

@@ -33,6 +33,12 @@
  }
 
 .button-choice {
+    width: calc(100% - 100px);
+    margin: 18px 0px 15px 100px;
+    padding: 25px 8px;
+}
+
+.button-enter {
     width: 100%;
     margin: 10px auto;
     padding: 8px 8px;
