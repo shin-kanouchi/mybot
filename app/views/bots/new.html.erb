@@ -1,7 +1,6 @@
 <script>$('div.header-center').html("ボット新規作成");</script>
 
 <div class="contents row">
-  <div class="container">
     <%= form_tag('/bots', method: :post) do %>
       <div class="field">
        <label>ボットの名前<em> (最大8文字)</em></label>
@@ -29,5 +28,4 @@
         <input type="submit" name="commit" value="登録" class="button button-enter button--wapasha button--text-thick">
       </div>
     <% end %>
-  </div>
 </div>

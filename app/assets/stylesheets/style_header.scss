@@ -65,11 +65,16 @@ header.header {
       padding: 0px 5px;
       //margin-right: 60px;
     }
-    img {
+     img.home_img{
       width: 30px;
       height: 30px;
       float: right;
       margin: 5px 5px 5px -40px;
+    }
+     img.logo{
+      width: 140px;
+      height: 30px;
+      margin: 0px 5px 5px 5px;
     }
   }
 }
@@ -85,6 +90,7 @@ header.header:after {
   text-align: center;
   margin: 10px 10% 10px 10%;
 }
+
 
 footer {
   position: relative;

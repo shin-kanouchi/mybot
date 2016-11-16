@@ -1,22 +1,38 @@
 <script>$('div.header-center').html("<%= @train_num %> /10");</script>
 
 <div class="contents">
-  <p>質問文</p>
-  <p class="question">
-    <%= @tweet.sentence %>
-  </p>
+  <div class="chat-box">
+    <div class="chat-face">
+      <img alt="Icon" src="<%= asset_path "icon/#{["normal","understanding","thinking"].sample}_#{[0,2,1][current_user.bot.gender]}-#{[1,2,3,4].sample}.png" %>" width="90" height="90" />
+    </div>
+    <div class="chat-area">
+      <div class="chat-hukidashi-choice">
+        <p><%= @tweet.sentence %></p>
+      </div>
+    </div>
+  </div>
 
   <%= form_tag("/evaluates/#{@eval.id}/pairwises/#{@train_num}", method: :patch, name: "eval-new") do %>
-    <input type="hidden" name="inequality_flag" value="0">
+    <br>
+    <% if current_user.id != @eval.evaluator %>
+      
+      <div class="container pt20">
+        <input type="hidden" name="inequality_flag" value="0">
 
-    <button type='button' class="button button-pair button--wapasha button--text-thick" onclick="pair_double('1')"><%= @pairwise.reply_x.sentence %></button>
-    <button type='button' class="button button-pair button--wapasha button--text-thick" onclick="pair_double('2')"><%= @pairwise.reply_y.sentence %></button>
+        <button type='button' class="button button-pair button--wapasha button--text-thick" onclick="pair_double('1')"><%= @pairwise.reply_x.sentence %></button>
+        <button type='button' class="button button-pair button--wapasha button--text-thick" onclick="pair_double('2')"><%= @pairwise.reply_y.sentence %></button>
+      </div>
+      <div class="chat-face-pair">
+        <img class="my-icon" alt="Icon" src="<%= asset_path "icon/normal_#{current_user.bot.gender}-#{current_user.bot.hair_color}.png" %>" width="90" height="90" />
+      </div>
 
-    <% if current_user.id = @eval.evaluator%>
-      <button type='button' class="button button-pair button--wapasha button--text-thick blue" onclick="pair_double('0')">どちらも同じレベル</button>
-    <% else %>
       <p>対戦相手の応答:</p>
       <%= @reply_enemy.sentence %>
+
+    <% else %>
+      <button type='button' class="button button-pair button--wapasha button--text-thick" onclick="pair_double('1')"><%= @pairwise.reply_x.sentence %></button>
+      <button type='button' class="button button-pair button--wapasha button--text-thick" onclick="pair_double('2')"><%= @pairwise.reply_y.sentence %></button>
+      <button type='button' class="button button-pair button--wapasha button--text-thick blue" onclick="pair_double('0')">どちらも同じレベル</button>
     <% end %>
   <% end %>
 </div>

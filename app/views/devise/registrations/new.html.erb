@@ -1,4 +1,4 @@
-<script>$('a.button').replaceWith('<div class="header-center">新規登録</div><a class="home" href="/"><img src="<%= asset_path "home.jpeg" %>" alt="home"></a>');</script>
+<script>$('a.button').replaceWith('<div class="header-center">新規登録</div><a class="home" href="/"><img class="home_img"src="<%= asset_path "home.jpeg" %>" alt="home"></a>');</script>
 
 <div class="contents">
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
