@@ -8,6 +8,7 @@
     <div class="chat-area">
       <div class="chat-hukidashi-choice">
         <p><%= @tweet.sentence %></p>
+        
       </div>
     </div>
   </div>
@@ -18,7 +19,8 @@
     <input type="text" name="dummy" value="" style="display:none;">
     <div class="container pt20">
       <div class="form-group checkbox-wrap text-center">
-        <% @trains.each do |train| %>
+      <%# ["桃は硬いですか","桃が言いますか？？","山梨から桃が届きますか？？","手に持ちますか？？"].each do |train| %>
+      <% @trains.each do |train| %>
           <div class="pos-center">
             <label class="label-checkbox">
               <input class="chkbox" type="checkbox" name="train_id[]" value="<%= train.id %>" />
