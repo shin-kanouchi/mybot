@@ -44,5 +44,5 @@ for line in open(sys.argv[2]):
     if word_score > 0.34:  word_score = 0.34
     sent_score += word_score
 
-  sent_score = sent_score - (1.15 ** len(surfs) - 1.15 )
+  sent_score = sent_score - (1.1 ** len(surfs) - 1.1 )
   print ("%s\t%f" %(sent, sent_score))
