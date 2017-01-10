@@ -29,7 +29,7 @@ def matching(input_tweet, input_nouns, database, n):
   if int(n) == 1:
     return nbest[0][0]
   else:
-    return [(nbest[i][0]) for i in range(n)]
+    return ",".join([str(nbest[i][0]) for i in range(n)])
 
 if __name__ == '__main__':
     pass

@@ -10,6 +10,7 @@ import do_mecab
 import collect_matching_word
 
 db_name = "mybot_production"
+#db_name = "mybot_development"
 host = "fomalhaut"
 username = "root"
 passwd = "mamochan"
@@ -22,7 +23,6 @@ class Choose_Reply:
     #self.model = pickle.load(open(model_path, 'rb'))
     self.model = model_path
     self.cursor = "" #connection.cursor()
-    self.cand_num = 20
     self.user_dic = {}
 
   def choose(self, user_id, tweet, nbest=1):
@@ -32,13 +32,16 @@ class Choose_Reply:
     train_db = self.cursor.fetchall() #2list
     nouns = do_mecab.do(tweet, ["名詞"])
     #print(tweet, nouns)
-    train_id = collect_matching_word.matching(tweet, nouns, train_db, nbest)
+    train_ids = collect_matching_word.matching(tweet, nouns, train_db, nbest)
     #self.cursor.execute(sql_rep, train_id)
     #reply_info = self.cursor.fetchall()
     #print(reply_info)
     connection.close()
     #if len(reply_info) == 0: return ""
-    return str(train_id)
+    return str(train_ids)
+
+
+
 
 
 if __name__ == '__main__':

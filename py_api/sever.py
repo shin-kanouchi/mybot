@@ -9,9 +9,7 @@ import choose_reply
 def reply():#user_id="2"):
   user_id = request.forms.get('user_id')
   tweet = request.forms.decode().get('tweet')
-  #print(tweet)
   return reply_db.choose(user_id, tweet)
-  #return str(model.choose(request.('data')))
 
 
 @route("/nbest_replys", method='POST')
@@ -19,7 +17,7 @@ def reply():
   user_id = request.forms.get('user_id')
   tweet = request.forms.decode().get('tweet')
   n = request.forms.get('n')
-  return reply_db.choose_nbest(user_id, tweet)
+  return reply_db.choose(user_id, tweet, nbest=int(n))
 
 
 if __name__ == '__main__':
